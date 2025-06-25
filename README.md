@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# 📚 Book Library – Projeto de Estudo Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de estudo front-end criado com **React.js**, **JavaScript** e **Bootstrap**, com uma fake API utilizando **JSON Server**.  
+O sistema simula uma biblioteca de livros, com foco em autenticação, rotas protegidas e boas práticas de estrutura e organização de código.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tecnologias utilizadas
 
-### `npm start`
+- [React](https://reactjs.org/)
+- [React Router DOM](https://reactrouter.com/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [Axios](https://axios-http.com/)
+- [JSON Server](https://github.com/typicode/json-server)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Estrutura de pastas
 
-### `npm test`
+```
+book-library/
+├── public/
+├── src/
+│   ├── components/         # Componentes reutilizáveis (ex: Navbar, ProtectedRoute)
+│   ├── pages/              # Páginas principais (Login, Home, Register, etc)
+│   ├── services/           # Requisições com axios (ex: usersService.js)
+│   ├── styles/             # Estilos personalizados (custom.css)
+│   ├── App.js              # Arquivo principal da aplicação
+│   ├── routes.jsx          # Definição das rotas da aplicação
+│   └── index.js            # Ponto de entrada do React
+├── db.json                 # Fake API para simular usuários e livros
+├── package.json
+└── README.md
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ✅ Funcionalidades implementadas até agora
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] Página de Login com validação e integração com JSON Server
+- [x] Página Home com acesso somente após login
+- [x] Roteamento com React Router DOM
+- [x] Rotas protegidas (Protected Routes)
+- [x] Armazenamento do usuário autenticado no `localStorage`
+- [x] Estrutura clara e organizada do projeto
+- [x] Uso de `axios` para chamadas à fake API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Como rodar o projeto localmente
 
-### `npm run eject`
+### 1. Clone o repositório
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/seu-usuario/book-library.git
+cd book-library
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Instale as dependências
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Inicie o servidor da fake API
 
-## Learn More
+```bash
+npm run server
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Isso iniciará o JSON Server na porta `5000` com o arquivo `db.json`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Inicie o projeto React
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> A aplicação será aberta automaticamente em `http://localhost:3000`
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 👤 Usuário para testes
 
-### Making a Progressive Web App
+Use as credenciais abaixo para testar o login:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+Email: ravi@email.com
+Senha: 123456
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔒 Proteção de rotas
 
-### Deployment
+Usuários que não estiverem logados **não conseguem acessar nenhuma página interna** como `/home`, `/favorites`, `/book/:id`, etc.  
+As rotas são protegidas com um componente chamado `ProtectedRoute`, que verifica se o usuário está salvo no `localStorage`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🧩 Próximos passos do projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] Criar página de registro (Register)
+- [ ] Listar livros na página Home
+- [ ] Adicionar carrossel de categorias
+- [ ] Página de detalhes de livros
+- [ ] Salvar livros favoritos
+- [ ] Página “meus favoritos”
+- [ ] Página de perfil do usuário
+- [ ] Integração futura com um backend real (Node.js + PostgreSQL)
+- [ ] Criação de testes automatizados
+
+---
+
+## 🧠 Objetivo do projeto
+
+Este projeto é voltado para **prática e aprendizado de desenvolvimento front-end**, com foco no domínio de:
+
+- React.js com rotas e navegação
+- Organização e estrutura de projetos reais
+- Consumo de APIs REST (mesmo que fake)
+- Lógica de autenticação e proteção de rotas
+- Estilização prática com Bootstrap 5
+
+---
+
+## 💬 Contato
+
+Feito com dedicação por **Ravi Silva** para estudo e evolução como desenvolvedor front-end.
+
+---
