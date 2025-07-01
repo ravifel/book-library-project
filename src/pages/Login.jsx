@@ -17,7 +17,6 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            // Faz uma requisição GET simulando autenticação
             const response = await axios.get('http://localhost:5000/users', {
                 params: {
                     email,
@@ -26,11 +25,12 @@ const Login = () => {
             });
 
             if (response.data.length > 0) {
-                // Usuário encontrado
                 const user = response.data[0];
                 console.log('Usuário autenticado:', user);
 
-                // Futuro: guardar o usuário logado com context ou localStorage
+                // ✅ Aqui salva no localStorage
+                localStorage.setItem('user', JSON.stringify(user));
+
                 // Redireciona para a página Home
                 navigate('/home');
             } else {
@@ -41,6 +41,7 @@ const Login = () => {
             setError('Erro no servidor. Tente novamente mais tarde.');
         }
     };
+
 
     return (
         <div className="container d-flex align-items-center justify-content-center vh-100">

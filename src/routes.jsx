@@ -1,6 +1,7 @@
 // routes.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
@@ -10,18 +11,58 @@ import Favorites from './pages/Favorites';
 import Category from './pages/Category';
 import Profile from './pages/Profile';
 
+import ProtectedRoute from './components/ProtectedRoute';
+import PrivateLayout from './components/PrivateLayout';
+
 const AppRoutes = () => {
     return (
         <Router>
             <Routes>
+                {/* Rotas públicas */}
                 <Route path="/" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/book/:id" element={<BookDetails />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/category/:name" element={<Category />} />
-                <Route path="/profile" element={<Profile />} />
+
+                {/* Rotas protegidas com layout privado */}
+                <Route path="/home" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Home />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/favorites" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Favorites />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/profile" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Profile />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/category/:name" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Category />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/book/:id" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <BookDetails />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
             </Routes>
         </Router>
     );
