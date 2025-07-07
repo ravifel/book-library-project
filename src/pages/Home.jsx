@@ -36,9 +36,8 @@ const Home = () => {
             <div className="card h-100 shadow-sm">
               <img
                 src={book.coverImage}
-                className="card-img-top"
                 alt={book.nameBook}
-                style={{ height: '300px', objectFit: 'cover' }}
+                className="book-cover"
               />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{book.nameBook}</h5>
