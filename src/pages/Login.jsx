@@ -6,11 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Login = () => {
     const navigate = useNavigate();
 
-    // Estados para capturar email e senha digitados
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    // Estado para mostrar erro, se necessário
     const [error, setError] = useState('');
 
     const handleLogin = async (e) => {
@@ -18,20 +15,12 @@ const Login = () => {
 
         try {
             const response = await axios.get('http://localhost:5000/users', {
-                params: {
-                    email,
-                    password
-                }
+                params: { email, password }
             });
 
             if (response.data.length > 0) {
                 const user = response.data[0];
-                console.log('Usuário autenticado:', user);
-
-                // ✅ Aqui salva no localStorage
                 localStorage.setItem('user', JSON.stringify(user));
-
-                // Redireciona para a página Home
                 navigate('/home');
             } else {
                 setError('Email ou senha inválidos.');
@@ -42,10 +31,9 @@ const Login = () => {
         }
     };
 
-
     return (
-        <div className="container d-flex align-items-center justify-content-center vh-100">
-            <div className="card p-4 shadow" style={{ width: '100%', maxWidth: '400px' }}>
+        <div className="container d-flex align-items-center justify-content-center vh-100 px-3">
+            <div className="card p-4 shadow w-100" style={{ maxWidth: '400px' }}>
                 <h2 className="text-center mb-4">Login</h2>
 
                 {error && <div className="alert alert-danger">{error}</div>}
@@ -81,9 +69,8 @@ const Login = () => {
                 </form>
 
                 <div className="text-center mt-3">
-                    <a href="/forgot-password">Esqueceu a senha?</a>
-                    <br />
-                    <a href="/register">Criar uma conta</a>
+                    <a href="/forgot-password" className="d-block">Esqueceu a senha?</a>
+                    <a href="/register" className="d-block">Criar uma conta</a>
                 </div>
             </div>
         </div>
