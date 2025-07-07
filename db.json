@@ -5,6 +5,446 @@
       "name": "Ravi Silva",
       "email": "ravi@email.com",
       "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Ana Silva",
+      "email": "anasilva@email.com",
+      "password": "123456"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "nameBook": "The Three Musketeers",
+      "category": "Adventure",
+      "author": "Alexandre Dumas",
+      "publicationDate": "1844-03-14",
+      "numberOfPages": 700,
+      "coverImage": "https://covers.openlibrary.org/b/id/8372097-L.jpg"
+    },
+    {
+      "id": 2,
+      "nameBook": "The Count of Monte Cristo",
+      "category": "Adventure",
+      "author": "Alexandre Dumas",
+      "publicationDate": "1844-08-28",
+      "numberOfPages": 1276,
+      "coverImage": "https://covers.openlibrary.org/b/id/8101351-L.jpg"
+    },
+    {
+      "id": 3,
+      "nameBook": "The Hobbit",
+      "category": "Adventure",
+      "author": "J.R.R. Tolkien",
+      "publicationDate": "1937-09-21",
+      "numberOfPages": 310,
+      "coverImage": "https://covers.openlibrary.org/b/id/6979861-L.jpg"
+    },
+    {
+      "id": 4,
+      "nameBook": "Treasure Island",
+      "category": "Adventure",
+      "author": "Robert Louis Stevenson",
+      "publicationDate": "1883-11-14",
+      "numberOfPages": 292,
+      "coverImage": "https://covers.openlibrary.org/b/id/8276191-L.jpg"
+    },
+    {
+      "id": 5,
+      "nameBook": "Journey to the Center of the Earth",
+      "category": "Adventure",
+      "author": "Jules Verne",
+      "publicationDate": "1864-11-25",
+      "numberOfPages": 183,
+      "coverImage": "https://covers.openlibrary.org/b/id/8105557-L.jpg"
+    },
+    {
+      "id": 6,
+      "nameBook": "Gulliver's Travels",
+      "category": "Adventure",
+      "author": "Jonathan Swift",
+      "publicationDate": "1726-10-28",
+      "numberOfPages": 336,
+      "coverImage": "https://covers.openlibrary.org/b/id/8234297-L.jpg"
+    },
+    {
+      "id": 7,
+      "nameBook": "Twenty Thousand Leagues Under the Seas",
+      "category": "Adventure",
+      "author": "Jules Verne",
+      "publicationDate": "1870-06-20",
+      "numberOfPages": 384,
+      "coverImage": "https://covers.openlibrary.org/b/id/8129251-L.jpg"
+    },
+    {
+      "id": 8,
+      "nameBook": "Swiss Family Robinson",
+      "category": "Adventure",
+      "author": "Johann David Wyss",
+      "publicationDate": "1812-01-01",
+      "numberOfPages": 320,
+      "coverImage": "https://covers.openlibrary.org/b/id/8235760-L.jpg"
+    },
+    {
+      "id": 9,
+      "nameBook": "Fahrenheit 451",
+      "category": "Fiction",
+      "author": "Ray Bradbury",
+      "publicationDate": "1953-10-19",
+      "numberOfPages": 194,
+      "coverImage": "https://covers.openlibrary.org/b/id/8226191-L.jpg"
+    },
+    {
+      "id": 10,
+      "nameBook": "The Time Machine",
+      "category": "Fiction",
+      "author": "H.G. Wells",
+      "publicationDate": "1895-05-07",
+      "numberOfPages": 118,
+      "coverImage": "https://covers.openlibrary.org/b/id/8175576-L.jpg"
+    },
+    {
+      "id": 11,
+      "nameBook": "Brave New World",
+      "category": "Fiction",
+      "author": "Aldous Huxley",
+      "publicationDate": "1932-08-01",
+      "numberOfPages": 311,
+      "coverImage": "https://covers.openlibrary.org/b/id/8225631-L.jpg"
+    },
+    {
+      "id": 12,
+      "nameBook": "Dune",
+      "category": "Fiction",
+      "author": "Frank Herbert",
+      "publicationDate": "1965-08-01",
+      "numberOfPages": 412,
+      "coverImage": "https://covers.openlibrary.org/b/id/8485831-L.jpg"
+    },
+    {
+      "id": 13,
+      "nameBook": "Foundation",
+      "category": "Fiction",
+      "author": "Isaac Asimov",
+      "publicationDate": "1951-05-01",
+      "numberOfPages": 255,
+      "coverImage": "https://covers.openlibrary.org/b/id/8101364-L.jpg"
+    },
+    {
+      "id": 14,
+      "nameBook": "Neuromancer",
+      "category": "Fiction",
+      "author": "William Gibson",
+      "publicationDate": "1984-07-01",
+      "numberOfPages": 271,
+      "coverImage": "https://covers.openlibrary.org/b/id/7769251-L.jpg"
+    },
+    {
+      "id": 15,
+      "nameBook": "Ender's Game",
+      "category": "Fiction",
+      "author": "Orson Scott Card",
+      "publicationDate": "1985-01-15",
+      "numberOfPages": 324,
+      "coverImage": "https://covers.openlibrary.org/b/id/8225231-L.jpg"
+    },
+    {
+      "id": 16,
+      "nameBook": "Snow Crash",
+      "category": "Fiction",
+      "author": "Neal Stephenson",
+      "publicationDate": "1992-06-01",
+      "numberOfPages": 470,
+      "coverImage": "https://covers.openlibrary.org/b/id/8236831-L.jpg"
+    },
+    {
+      "id": 17,
+      "nameBook": "The Power of Habit",
+      "category": "Self-Help",
+      "author": "Charles Duhigg",
+      "publicationDate": "2012-02-28",
+      "numberOfPages": 371,
+      "coverImage": "https://covers.openlibrary.org/b/id/8094031-L.jpg"
+    },
+    {
+      "id": 18,
+      "nameBook": "Atomic Habits",
+      "category": "Self-Help",
+      "author": "James Clear",
+      "publicationDate": "2018-10-16",
+      "numberOfPages": 320,
+      "coverImage": "https://covers.openlibrary.org/b/id/8554031-L.jpg"
+    },
+    {
+      "id": 19,
+      "nameBook": "The 7 Habits of Highly Effective People",
+      "category": "Self-Help",
+      "author": "Stephen R. Covey",
+      "publicationDate": "1989-08-15",
+      "numberOfPages": 381,
+      "coverImage": "https://covers.openlibrary.org/b/id/8214031-L.jpg"
+    },
+    {
+      "id": 20,
+      "nameBook": "How to Win Friends and Influence People",
+      "category": "Self-Help",
+      "author": "Dale Carnegie",
+      "publicationDate": "1936-10-01",
+      "numberOfPages": 291,
+      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg"
+    },
+    {
+      "id": 21,
+      "nameBook": "Think and Grow Rich",
+      "category": "Self-Help",
+      "author": "Napoleon Hill",
+      "publicationDate": "1937-03-01",
+      "numberOfPages": 238,
+      "coverImage": "https://covers.openlibrary.org/b/id/8244031-L.jpg"
+    },
+    {
+      "id": 22,
+      "nameBook": "Awaken the Giant Within",
+      "category": "Self-Help",
+      "author": "Tony Robbins",
+      "publicationDate": "1991-11-01",
+      "numberOfPages": 544,
+      "coverImage": "https://covers.openlibrary.org/b/id/8254031-L.jpg"
+    },
+    {
+      "id": 23,
+      "nameBook": "The Subtle Art of Not Giving a F*ck",
+      "category": "Self-Help",
+      "author": "Mark Manson",
+      "publicationDate": "2016-09-13",
+      "numberOfPages": 224,
+      "coverImage": "https://covers.openlibrary.org/b/id/8264031-L.jpg"
+    },
+    {
+      "id": 24,
+      "nameBook": "Man's Search for Meaning",
+      "category": "Self-Help",
+      "author": "Viktor E. Frankl",
+      "publicationDate": "1946-01-01",
+      "numberOfPages": 200,
+      "coverImage": "https://covers.openlibrary.org/b/id/8274031-L.jpg"
+    },
+    {
+      "id": 25,
+      "nameBook": "Pride and Prejudice",
+      "category": "Classics",
+      "author": "Jane Austen",
+      "publicationDate": "1813-01-28",
+      "numberOfPages": 279,
+      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg"
+    },
+    {
+      "id": 26,
+      "nameBook": "Moby Dick",
+      "category": "Classics",
+      "author": "Herman Melville",
+      "publicationDate": "1851-10-18",
+      "numberOfPages": 585,
+      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg"
+    },
+    {
+      "id": 27,
+      "nameBook": "Wuthering Heights",
+      "category": "Classics",
+      "author": "Emily Brontë",
+      "publicationDate": "1847-12-01",
+      "numberOfPages": 416,
+      "coverImage": "https://covers.openlibrary.org/b/id/8242031-L.jpg"
+    },
+    {
+      "id": 28,
+      "nameBook": "Great Expectations",
+      "category": "Classics",
+      "author": "Charles Dickens",
+      "publicationDate": "1861-08-01",
+      "numberOfPages": 505,
+      "coverImage": "https://covers.openlibrary.org/b/id/8252031-L.jpg"
+    },
+    {
+      "id": 29,
+      "nameBook": "Crime and Punishment",
+      "category": "Classics",
+      "author": "Fyodor Dostoevsky",
+      "publicationDate": "1866-01-01",
+      "numberOfPages": 430,
+      "coverImage": "https://covers.openlibrary.org/b/id/8262031-L.jpg"
+    },
+    {
+      "id": 30,
+      "nameBook": "The Great Gatsby",
+      "category": "Classics",
+      "author": "F. Scott Fitzgerald",
+      "publicationDate": "1925-04-10",
+      "numberOfPages": 180,
+      "coverImage": "https://covers.openlibrary.org/b/id/8272031-L.jpg"
+    },
+    {
+      "id": 31,
+      "nameBook": "War and Peace",
+      "category": "Classics",
+      "author": "Leo Tolstoy",
+      "publicationDate": "1869-01-01",
+      "numberOfPages": 1225,
+      "coverImage": "https://covers.openlibrary.org/b/id/8282031-L.jpg"
+    },
+    {
+      "id": 32,
+      "nameBook": "Don Quixote",
+      "category": "Classics",
+      "author": "Miguel de Cervantes",
+      "publicationDate": "1605-01-16",
+      "numberOfPages": 863,
+      "coverImage": "https://covers.openlibrary.org/b/id/8292031-L.jpg"
+    },
+    {
+      "id": 33,
+      "nameBook": "Dracula",
+      "category": "Horror",
+      "author": "Bram Stoker",
+      "publicationDate": "1897-05-26",
+      "numberOfPages": 418,
+      "coverImage": "https://covers.openlibrary.org/b/id/8302031-L.jpg"
+    },
+    {
+      "id": 34,
+      "nameBook": "Frankenstein",
+      "category": "Horror",
+      "author": "Mary Shelley",
+      "publicationDate": "1818-01-01",
+      "numberOfPages": 280,
+      "coverImage": "https://covers.openlibrary.org/b/id/8312031-L.jpg"
+    },
+    {
+      "id": 35,
+      "nameBook": "The Shining",
+      "category": "Horror",
+      "author": "Stephen King",
+      "publicationDate": "1977-01-28",
+      "numberOfPages": 447,
+      "coverImage": "https://covers.openlibrary.org/b/id/8322031-L.jpg"
+    },
+    {
+      "id": 36,
+      "nameBook": "It",
+      "category": "Horror",
+      "author": "Stephen King",
+      "publicationDate": "1986-09-15",
+      "numberOfPages": 1138,
+      "coverImage": "https://covers.openlibrary.org/b/id/8332031-L.jpg"
+    },
+    {
+      "id": 37,
+      "nameBook": "The Exorcist",
+      "category": "Horror",
+      "author": "William Peter Blatty",
+      "publicationDate": "1971-06-01",
+      "numberOfPages": 340,
+      "coverImage": "https://covers.openlibrary.org/b/id/8342031-L.jpg"
+    },
+    {
+      "id": 38,
+      "nameBook": "The Call of Cthulhu",
+      "category": "Horror",
+      "author": "H.P. Lovecraft",
+      "publicationDate": "1928-02-01",
+      "numberOfPages": 43,
+      "coverImage": "https://covers.openlibrary.org/b/id/8352031-L.jpg"
+    },
+    {
+      "id": 39,
+      "nameBook": "The Silence of the Lambs",
+      "category": "Horror",
+      "author": "Thomas Harris",
+      "publicationDate": "1988-05-19",
+      "numberOfPages": 338,
+      "coverImage": "https://covers.openlibrary.org/b/id/8362031-L.jpg"
+    },
+    {
+      "id": 40,
+      "nameBook": "The Haunting of Hill House",
+      "category": "Horror",
+      "author": "Shirley Jackson",
+      "publicationDate": "1959-10-16",
+      "numberOfPages": 246,
+      "coverImage": "https://covers.openlibrary.org/b/id/8372031-L.jpg"
+    },
+    {
+      "id": 41,
+      "nameBook": "Pride and Prejudice",
+      "category": "Romance",
+      "author": "Jane Austen",
+      "publicationDate": "1813-01-28",
+      "numberOfPages": 279,
+      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg"
+    },
+    {
+      "id": 42,
+      "nameBook": "Jane Eyre",
+      "category": "Romance",
+      "author": "Charlotte Brontë",
+      "publicationDate": "1847-10-16",
+      "numberOfPages": 500,
+      "coverImage": "https://covers.openlibrary.org/b/id/8382031-L.jpg"
+    },
+    {
+      "id": 43,
+      "nameBook": "Wuthering Heights",
+      "category": "Romance",
+      "author": "Emily Brontë",
+      "publicationDate": "1847-12-01",
+      "numberOfPages": 416,
+      "coverImage": "https://covers.openlibrary.org/b/id/8392031-L.jpg"
+    },
+    {
+      "id": 44,
+      "nameBook": "Gone with the Wind",
+      "category": "Romance",
+      "author": "Margaret Mitchell",
+      "publicationDate": "1936-06-30",
+      "numberOfPages": 1037,
+      "coverImage": "https://covers.openlibrary.org/b/id/8402031-L.jpg"
+    },
+    {
+      "id": 45,
+      "nameBook": "Anna Karenina",
+      "category": "Romance",
+      "author": "Leo Tolstoy",
+      "publicationDate": "1877-01-01",
+      "numberOfPages": 864,
+      "coverImage": "https://covers.openlibrary.org/b/id/8412031-L.jpg"
+    },
+    {
+      "id": 46,
+      "nameBook": "The Notebook",
+      "category": "Romance",
+      "author": "Nicholas Sparks",
+      "publicationDate": "1996-10-01",
+      "numberOfPages": 214,
+      "coverImage": "https://covers.openlibrary.org/b/id/8422031-L.jpg"
+    },
+    {
+      "id": 47,
+      "nameBook": "A Walk to Remember",
+      "category": "Romance",
+      "author": "Nicholas Sparks",
+      "publicationDate": "1999-10-01",
+      "numberOfPages": 240,
+      "coverImage": "https://covers.openlibrary.org/b/id/8432031-L.jpg"
+    },
+    {
+      "id": 48,
+      "nameBook": "Outlander",
+      "category": "Romance",
+      "author": "Diana Gabaldon",
+      "publicationDate": "1991-06-01",
+      "numberOfPages": 850,
+      "coverImage": "https://covers.openlibrary.org/b/id/8442031-L.jpg"
     }
   ]
 }

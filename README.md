@@ -1,18 +1,17 @@
+# 📚 Book Library – Front-End Study Project
 
-# 📚 Book Library – Projeto de Estudo Front-End
+This is a front-end study project built with **React.js**, **JavaScript**, and **Bootstrap**, using a fake API with **JSON Server**.  
+The system simulates a virtual book library with a focus on:
 
-Este é um projeto de estudo front-end criado com **React.js**, **JavaScript** e **Bootstrap**, utilizando uma fake API com **JSON Server**.  
-O sistema simula uma biblioteca virtual de livros com foco em:
-
-- Autenticação de usuário
-- Rotas protegidas
-- Estrutura organizada
-- Navegação entre categorias
-- Salvamento de favoritos
+- User authentication
+- Protected routes
+- Modular structure
+- Category-based navigation
+- Saving favorite books
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies Used
 
 - [React](https://reactjs.org/)
 - [React Router DOM](https://reactrouter.com/)
@@ -22,102 +21,108 @@ O sistema simula uma biblioteca virtual de livros com foco em:
 
 ---
 
-## 📁 Estrutura de pastas
+## 📁 Project Structure
 
 ```
 book-library/
 ├── public/
 ├── src/
-│   ├── components/         # Componentes reutilizáveis (Navbar, ProtectedRoute, Layout)
-│   ├── pages/              # Páginas principais (Login, Home, Register, etc)
-│   ├── services/           # Requisições com axios (ex: usersService.js)
-│   ├── styles/             # Estilos personalizados (custom.css)
-│   ├── App.js              # Arquivo principal da aplicação
-│   ├── routes.jsx          # Definição das rotas da aplicação
-│   └── index.js            # Ponto de entrada do React
-├── db.json                 # Fake API com usuários e livros
+│   ├── components/         # Reusable components (Navbar, ProtectedRoute, Layout)
+│   ├── pages/              # Main pages (Login, Home, Register, etc.)
+│   ├── services/           # Axios services (e.g., usersService.js)
+│   ├── styles/             # Custom styles (custom.css)
+│   ├── App.js              # Main application component
+│   ├── routes.jsx          # Application route definitions
+│   └── index.js            # React entry point
+├── db.json                 # Fake API with users and books
 ├── package.json
 └── README.md
 ```
 
 ---
 
-## ✅ Funcionalidades implementadas
+## ✅ Features Implemented
 
-- [x] Página de **Login** com validação e autenticação via JSON Server
-- [x] Página **Home** acessível apenas após login
-- [x] Página de **Perfil**, exibindo nome e e-mail do usuário logado
-- [x] Página **Favorites** protegida
-- [x] **Navbar** com menu, nome do usuário e botão de logout
-- [x] **Dropdown de categorias** dinâmico no menu (Aventura, Ficção, etc)
-- [x] Roteamento completo com React Router DOM
-- [x] **Rotas protegidas** (usuário não autenticado é redirecionado)
-- [x] Salvamento de usuário autenticado no `localStorage`
-- [x] Organização modular com separação de componentes, páginas, estilos e serviços
+- [x] **Login** page with form validation and authentication via JSON Server
+- [x] **Home** page accessible only after login
+- [x] **Profile** page displaying user name and email
+- [x] Protected **Favorites** page
+- [x] **Navbar** with menu, logged user’s name, and logout button
+- [x] Dynamic **category dropdown** (Adventure, Fiction, etc.)
+- [x] Full routing setup using React Router DOM
+- [x] **Protected routes**: unauthenticated users are redirected
+- [x] Authenticated user is stored in `localStorage`
+- [x] Modular organization with separation of components, pages, styles, and services
 
 ---
 
-## 🛠️ Como rodar o projeto localmente
+## 🛠️ How to Run the Project Locally
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/seu-usuario/book-library.git
+git clone https://github.com/your-username/book-library.git
 cd book-library
 ```
 
-### 2. Instale as dependências
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Inicie o servidor da fake API
+### 3. Start the fake API server
 
 ```bash
 npm run server
 ```
 
-> Isso iniciará o JSON Server na porta `5000` usando o arquivo `db.json`.
+> This starts the JSON Server on port `5000` using the `db.json` file.
 
-### 4. Inicie o projeto React
+### 4. Start the React app
 
 ```bash
 npm start
 ```
 
-> A aplicação será aberta automaticamente em `http://localhost:3000`
+> The app will automatically open at `http://localhost:3000`
 
 ---
 
-## 👤 Usuário para testes
+## 👤 Test User
 
-Use as credenciais abaixo para testar o login:
+Use the following credentials to log in:
 
 ```
 Email: ravi@email.com
-Senha: 123456
+Password: 123456
 ```
 
 ---
 
-## 🔒 Proteção de rotas
+## 🔒 Route Protection
 
-O sistema utiliza um componente chamado `ProtectedRoute`, que:
+The system uses a custom component called `ProtectedRoute` that:
 
-- Verifica se o usuário está salvo no `localStorage`
-- Redireciona para o login caso tente acessar rotas protegidas
-- Garante que páginas como `/home`, `/favorites`, `/category/:name`, `/profile`, etc., só sejam acessadas após login
+- Checks if a user is stored in `localStorage`
+- Redirects to the login page if not authenticated
+- Ensures pages like `/home`, `/favorites`, `/category/:name`, `/profile`, etc., are only accessible after login
 
 ---
 
-## 🎯 Objetivo do projeto
+## 🎯 Project Goals
 
-Este projeto é voltado para **prática e aprendizado de desenvolvimento front-end**, com foco em:
+This project is focused on **practicing and improving front-end development skills**, especially in:
 
-- Domínio do React.js com rotas, navegação e componentes
-- Organização e estruturação de projetos reais
-- Consumo de APIs REST
-- Gerenciamento de estado inicial com `useState` e `localStorage`
-- Autenticação e proteção de rotas
-- Estilização prática com Bootstrap
+- Mastering React.js with routing, navigation, and reusable components
+- Structuring real-world projects with clear separation of concerns
+- Consuming RESTful APIs
+- Managing basic state with `useState` and `localStorage`
+- Implementing user authentication and protected routes
+- Building responsive UI with Bootstrap 5
+
+---
+
+## 💬 Contact
+
+Created with dedication by **Ravi Silva** for study and continuous improvement as a front-end developer.
