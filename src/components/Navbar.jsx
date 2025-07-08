@@ -5,7 +5,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
-    const categories = ["Aventura", "Ficção", "Autoajuda", "Clássicos", "Terror", "Romance"];
+    const categories = ["Adventure", "Fiction", "Self-Help", "Classics", "Horror", "Romance"];
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
