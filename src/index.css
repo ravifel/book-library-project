@@ -1,3 +1,48 @@
+:root {
+  --primary: #2979ff;
+  /* Azul principal */
+  --primary-dark: #1565c0;
+  /* Azul escuro para hover */
+  --primary-light: #e3f0ff;
+  /* Azul claro para fundo */
+  --primary-card: #b3d1ff;
+  /* Azul para borda de cards/badges */
+
+  --secondary: #fff;
+  /* Branco, para botões secundários ou fundo */
+  --secondary-dark: #dde4ea;
+  /* Cinza claro */
+  --secondary-light: #f4f6fa;
+  /* Cinza ainda mais claro */
+
+  --danger: #e57373;
+  /* Vermelho, para avisos/erro/favorito */
+  --success: #43a047;
+  /* Verde, para ações de sucesso (opcional) */
+  --text-main: #222;
+  --text-muted: #65747e;
+
+  --border-radius: 8px;
+  --box-shadow: 0 2px 8px rgba(49, 73, 100, 0.04);
+
+  --button-cart-bg: #43a047;
+  /* Verde do botão Adicionar ao carrinho */
+  --button-cart-bg-hover: #388e3c;
+  /* Verde mais escuro no hover */
+  --button-cart-text: #fff;
+
+  --button-fav-bg: #e53935;
+  /* Vermelho do botão Favoritar */
+  --button-fav-bg-hover: #ab000d;
+  /* Vermelho mais escuro no hover */
+  --button-fav-text: #fff;
+  --danger: #e53935;
+
+  /* --green-price-bg
+  --green-hover
+  --green-bg */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +50,217 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--green-bg);
+  color: var(--primary);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--white) !important;
+  border-bottom: 1px solid var(--primary-card);
+}
+
+.navbar .nav-link,
+.navbar-brand {
+  color: var(--primary) !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--green-hover) !important;
+}
+
+.navbar .btn-outline-danger,
+.navbar .btn-outline-danger:focus {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--white);
+}
+
+.navbar .btn-outline-danger:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* Alinhamento e altura fixa para navbar */
+.navbar-solid-bg {
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 1030;
+  min-height: 64px;
+  height: 64px;
+}
+
+.navbar-nav {
+  align-items: center !important;
+  margin-bottom: 0 !important;
+  height: 64px;
+}
+
+.nav-link {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+}
+
+/* Badge carrinho */
+.cart-badge {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  background: var(--danger);
+  color: #fff;
+  border-radius: 50%;
+  min-width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 17px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  border: 2px solid #fff;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--primary-card);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(49, 73, 66, 0.04);
+}
+
+.card-title,
+.card-text {
+  color: var(--primary);
+}
+
+/* Botões */
+.btn-primary,
+.btn-success {
+  background: var(--primary) !important;
+  border: none !important;
+  color: var(--secondary-light) !important;
+  font-weight: 500;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  background: var(--primary-card) !important;
+  color: var(--primary) !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary) !important;
+  border: 1.5px solid var(--primary) !important;
+  background: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-card) !important;
+  color: var(--primary) !important;
+}
+
+.btn-danger,
+.btn-outline-danger {
+  background: var(--red) !important;
+  color: var(--white) !important;
+  border: none !important;
+}
+
+.btn-danger:hover,
+.btn-outline-danger:hover {
+  background: var(--red-hover) !important;
+}
+
+/* Preço destacado */
+.price-badge {
+  background: var(--green-price-bg);
+  color: var(--primary);
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 2px 10px;
+  font-size: 1.1em;
+}
+
+/* Book Cover */
+.book-cover {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  background-color: var(--white);
+  padding: 10px;
+  border: 1px solid var(--primary-card);
+  box-shadow: 0 0 4px rgba(49, 73, 66, 0.05);
+  border-radius: 5px;
+}
+
+/* Inputs e formulários */
+.form-control {
+  background: var(--gray-light);
+  border: 1.5px solid var(--gray-border);
+  color: var(--primary);
+}
+
+.form-control:focus {
+  border-color: var(--primary-card);
+  box-shadow: 0 0 0 2px var(--primary-card, #a3e5c3);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--green-hover);
+  text-decoration: none;
+}
+
+/* Estrelas (avaliação) */
+.bi-star-fill,
+.bi-star-half,
+.bi-star {
+  color: #FFD700;
+  font-size: 1.3em;
+}
+
+/* Responsividade e ajustes de layout */
+@media (max-width: 991.98px) {
+
+  .navbar-solid-bg,
+  .navbar-solid-bg .navbar-collapse {
+    background: #fff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid var(--primary-card);
+  }
+
+  .navbar-collapse {
+    padding-bottom: 12px;
+  }
+
+  /* Ajuste para o dropdown do menu Categorias abrir abaixo do botão */
+  .navbar-nav .dropdown-menu {
+    position: absolute !important;
+    left: 0 !important;
+    top: 100% !important;
+    min-width: 170px;
+    margin-top: 0.4rem;
+    background: #fff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    border: 1px solid var(--primary-card);
+    z-index: 1050;
+  }
 }

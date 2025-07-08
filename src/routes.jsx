@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import PrivateLayout from './components/PrivateLayout';
+import Cart from './pages/Cart';
 
 const AppRoutes = () => {
     return (
@@ -36,6 +37,14 @@ const AppRoutes = () => {
                     <ProtectedRoute>
                         <PrivateLayout>
                             <Favorites />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/cart" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Cart />
                         </PrivateLayout>
                     </ProtectedRoute>
                 } />

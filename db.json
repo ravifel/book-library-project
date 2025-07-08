@@ -21,7 +21,10 @@
       "author": "Alexandre Dumas",
       "publicationDate": "1844-03-14",
       "numberOfPages": 700,
-      "coverImage": "https://covers.openlibrary.org/b/id/8372097-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8372097-L.jpg",
+      "price": 49.90,
+      "description": "The Three Musketeers is a swashbuckling tale of adventure, romance, and intrigue set in 17th-century France. The story follows d'Artagnan as he joins forces with the legendary musketeers Athos, Porthos, and Aramis. Together, they become embroiled in political conspiracies, duels, and forbidden love, standing against the villainous Cardinal Richelieu and the mysterious Milady de Winter. With fast-paced action and memorable characters, this classic novel explores themes of friendship, loyalty, and honor.",
+      "stars": 4.6
     },
     {
       "id": 2,
@@ -30,7 +33,10 @@
       "author": "Alexandre Dumas",
       "publicationDate": "1844-08-28",
       "numberOfPages": 1276,
-      "coverImage": "https://covers.openlibrary.org/b/id/8101351-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8101351-L.jpg",
+      "price": 59.90,
+      "description": "The Count of Monte Cristo is a gripping story of betrayal, revenge, and redemption. Edmond Dantès is falsely imprisoned, escapes from the notorious Château d'If, and discovers a hidden treasure. Reborn as the enigmatic Count of Monte Cristo, he sets out to punish those who wronged him, manipulating the fates of his enemies in a complex web of intrigue. This epic novel explores the consequences of vengeance and the power of forgiveness.",
+      "stars": 4.8
     },
     {
       "id": 3,
@@ -39,7 +45,10 @@
       "author": "J.R.R. Tolkien",
       "publicationDate": "1937-09-21",
       "numberOfPages": 310,
-      "coverImage": "https://covers.openlibrary.org/b/id/6979861-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
+      "price": 39.90,
+      "description": "The Hobbit tells the story of Bilbo Baggins, a reluctant hobbit who embarks on an extraordinary journey with a company of dwarves to reclaim their homeland from the dragon Smaug. Along the way, Bilbo encounters trolls, goblins, elves, and the creature Gollum, from whom he acquires the mysterious One Ring. Tolkien's beloved tale is a timeless adventure that celebrates courage, friendship, and the magic of the unknown.",
+      "stars": 4.7
     },
     {
       "id": 4,
@@ -48,7 +57,10 @@
       "author": "Robert Louis Stevenson",
       "publicationDate": "1883-11-14",
       "numberOfPages": 292,
-      "coverImage": "https://covers.openlibrary.org/b/id/8276191-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8276191-L.jpg",
+      "price": 34.90,
+      "description": "Treasure Island is a classic pirate adventure that follows young Jim Hawkins as he discovers a treasure map and sets sail on a perilous voyage. Alongside a colorful cast of characters, including the infamous Long John Silver, Jim faces mutiny, danger, and the allure of hidden gold. Stevenson's novel is a tale of courage, betrayal, and the quest for fortune on the high seas.",
+      "stars": 4.5
     },
     {
       "id": 5,
@@ -57,7 +69,10 @@
       "author": "Jules Verne",
       "publicationDate": "1864-11-25",
       "numberOfPages": 183,
-      "coverImage": "https://covers.openlibrary.org/b/id/8105557-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8105557-L.jpg",
+      "price": 29.90,
+      "description": "Journey to the Center of the Earth is a pioneering science fiction novel in which Professor Lidenbrock, his nephew Axel, and their guide Hans descend into a volcanic crater and discover a subterranean world filled with prehistoric creatures and natural wonders. Their journey is a thrilling blend of scientific curiosity and imaginative exploration, showcasing Verne's fascination with the unknown.",
+      "stars": 4.4
     },
     {
       "id": 6,
@@ -66,7 +81,10 @@
       "author": "Jonathan Swift",
       "publicationDate": "1726-10-28",
       "numberOfPages": 336,
-      "coverImage": "https://covers.openlibrary.org/b/id/8234297-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8234297-L.jpg",
+      "price": 32.90,
+      "description": "Gulliver's Travels is a satirical adventure chronicling the voyages of Lemuel Gulliver, who encounters fantastical lands such as Lilliput, where the inhabitants are tiny, and Brobdingnag, a land of giants. Each journey serves as a biting commentary on society, politics, and human nature, making this novel both a delightful fantasy and a profound social critique.",
+      "stars": 4.3
     },
     {
       "id": 7,
@@ -75,7 +93,10 @@
       "author": "Jules Verne",
       "publicationDate": "1870-06-20",
       "numberOfPages": 384,
-      "coverImage": "https://covers.openlibrary.org/b/id/8129251-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8129251-L.jpg",
+      "price": 36.90,
+      "description": "Twenty Thousand Leagues Under the Seas follows Professor Aronnax, his servant Conseil, and harpooner Ned Land as they are captured by Captain Nemo aboard the mysterious submarine Nautilus. Together, they embark on a mesmerizing underwater odyssey, encountering exotic creatures, lost cities, and the enigmatic motives of Nemo himself. Verne's masterpiece is a celebration of exploration and the wonders of the deep sea.",
+      "stars": 4.5
     },
     {
       "id": 8,
@@ -84,7 +105,10 @@
       "author": "Johann David Wyss",
       "publicationDate": "1812-01-01",
       "numberOfPages": 320,
-      "coverImage": "https://covers.openlibrary.org/b/id/8235760-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8235760-L.jpg",
+      "price": 28.90,
+      "description": "Swiss Family Robinson tells the story of a Swiss family shipwrecked on a deserted island. Using ingenuity and teamwork, they build a new life, overcoming challenges and discovering the island's rich resources. This inspiring tale of survival, adventure, and family bonds has captivated readers for generations.",
+      "stars": 4.2
     },
     {
       "id": 9,
@@ -93,7 +117,10 @@
       "author": "Ray Bradbury",
       "publicationDate": "1953-10-19",
       "numberOfPages": 194,
-      "coverImage": "https://covers.openlibrary.org/b/id/8226191-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8226191-L.jpg",
+      "price": 38.90,
+      "description": "Fahrenheit 451 is a dystopian novel set in a future society where books are outlawed and 'firemen' burn any that are found. The story follows Guy Montag, a fireman who begins to question the ban on literature and seeks meaning in a censored world. Bradbury's chilling vision explores themes of censorship, conformity, and the enduring power of knowledge.",
+      "stars": 4.6
     },
     {
       "id": 10,
@@ -102,7 +129,10 @@
       "author": "H.G. Wells",
       "publicationDate": "1895-05-07",
       "numberOfPages": 118,
-      "coverImage": "https://covers.openlibrary.org/b/id/8175576-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8175576-L.jpg",
+      "price": 27.90,
+      "description": "The Time Machine is a groundbreaking science fiction novel in which the unnamed Time Traveller invents a machine that allows him to journey into the distant future. He discovers the Eloi and Morlocks, two distinct races, and witnesses the ultimate fate of humanity. Wells's work is a profound meditation on time, evolution, and the human condition.",
+      "stars": 4.4
     },
     {
       "id": 11,
@@ -111,7 +141,10 @@
       "author": "Aldous Huxley",
       "publicationDate": "1932-08-01",
       "numberOfPages": 311,
-      "coverImage": "https://covers.openlibrary.org/b/id/8225631-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8225631-L.jpg",
+      "price": 42.90,
+      "description": "Brave New World depicts a future society where technological advancements have created a world of comfort, pleasure, and conformity. Individuality is suppressed, and people are conditioned from birth to accept their roles. Huxley's novel raises questions about freedom, happiness, and the cost of utopia in a controlled world.",
+      "stars": 4.5
     },
     {
       "id": 12,
@@ -120,7 +153,10 @@
       "author": "Frank Herbert",
       "publicationDate": "1965-08-01",
       "numberOfPages": 412,
-      "coverImage": "https://covers.openlibrary.org/b/id/8485831-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8485831-L.jpg",
+      "price": 54.90,
+      "description": "Dune is an epic science fiction saga set on the desert planet Arrakis, the only source of the rare and valuable spice melange. Paul Atreides, heir to a noble family, must navigate political intrigue, prophecy, and rebellion as he rises to become the mysterious figure known as Muad'Dib. Herbert's masterpiece explores themes of power, religion, ecology, and human potential.",
+      "stars": 4.7
     },
     {
       "id": 13,
@@ -129,7 +165,10 @@
       "author": "Isaac Asimov",
       "publicationDate": "1951-05-01",
       "numberOfPages": 255,
-      "coverImage": "https://covers.openlibrary.org/b/id/8101364-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8101364-L.jpg",
+      "price": 33.90,
+      "description": "Foundation begins the legendary saga of Hari Seldon, a mathematician who develops psychohistory to predict the collapse of the Galactic Empire. He establishes the Foundation, a group of scientists and scholars, to preserve knowledge and shorten the coming dark age. Asimov's vision is a sweeping tale of science, politics, and the resilience of civilization.",
+      "stars": 4.5
     },
     {
       "id": 14,
@@ -138,7 +177,10 @@
       "author": "William Gibson",
       "publicationDate": "1984-07-01",
       "numberOfPages": 271,
-      "coverImage": "https://covers.openlibrary.org/b/id/7769251-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/7769251-L.jpg",
+      "price": 37.90,
+      "description": "Neuromancer is a cyberpunk classic that follows Case, a washed-up computer hacker hired by a mysterious employer for a final job. Set in a world of artificial intelligence, virtual reality, and corporate intrigue, Gibson's novel redefined the science fiction genre and introduced the concept of cyberspace.",
+      "stars": 4.4
     },
     {
       "id": 15,
@@ -147,7 +189,10 @@
       "author": "Orson Scott Card",
       "publicationDate": "1985-01-15",
       "numberOfPages": 324,
-      "coverImage": "https://covers.openlibrary.org/b/id/8225231-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8225231-L.jpg",
+      "price": 41.90,
+      "description": "Ender's Game tells the story of Ender Wiggin, a gifted child recruited into a military training program to prepare for an impending alien invasion. Ender's struggle with leadership, morality, and identity forms the heart of this gripping tale of strategy and survival.",
+      "stars": 4.6
     },
     {
       "id": 16,
@@ -156,7 +201,10 @@
       "author": "Neal Stephenson",
       "publicationDate": "1992-06-01",
       "numberOfPages": 470,
-      "coverImage": "https://covers.openlibrary.org/b/id/8236831-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8236831-L.jpg",
+      "price": 38.50,
+      "description": "Snow Crash is a fast-paced cyberpunk adventure in a future America dominated by corporate franchises and virtual reality. Hiro Protagonist, a hacker and pizza delivery driver, uncovers a deadly new drug called Snow Crash that threatens both the virtual and real worlds. Stephenson's novel is a witty, action-packed exploration of technology, language, and society.",
+      "stars": 4.3
     },
     {
       "id": 17,
@@ -165,7 +213,10 @@
       "author": "Charles Duhigg",
       "publicationDate": "2012-02-28",
       "numberOfPages": 371,
-      "coverImage": "https://covers.openlibrary.org/b/id/8094031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8094031-L.jpg",
+      "price": 44.90,
+      "description": "The Power of Habit explores the science behind why habits form and how they can be changed. Charles Duhigg presents compelling stories and research, revealing how habits shape individuals, organizations, and societies. The book provides practical strategies for transforming habits to achieve personal and professional success.",
+      "stars": 4.7
     },
     {
       "id": 18,
@@ -174,7 +225,10 @@
       "author": "James Clear",
       "publicationDate": "2018-10-16",
       "numberOfPages": 320,
-      "coverImage": "https://covers.openlibrary.org/b/id/8554031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8554031-L.jpg",
+      "price": 47.90,
+      "description": "Atomic Habits offers a proven framework for making small changes that lead to remarkable results. James Clear explains how tiny habits, when compounded over time, can transform lives. The book is filled with actionable insights and strategies for building good habits, breaking bad ones, and mastering the art of continuous improvement.",
+      "stars": 4.8
     },
     {
       "id": 19,
@@ -183,7 +237,10 @@
       "author": "Stephen R. Covey",
       "publicationDate": "1989-08-15",
       "numberOfPages": 381,
-      "coverImage": "https://covers.openlibrary.org/b/id/8214031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8214031-L.jpg",
+      "price": 42.50,
+      "description": "The 7 Habits of Highly Effective People is a classic guide to personal and professional growth. Stephen Covey presents a principle-centered approach to effectiveness, emphasizing habits such as proactivity, beginning with the end in mind, and seeking win-win solutions. The book provides timeless wisdom for achieving lasting change.",
+      "stars": 4.6
     },
     {
       "id": 20,
@@ -192,7 +249,10 @@
       "author": "Dale Carnegie",
       "publicationDate": "1936-10-01",
       "numberOfPages": 291,
-      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg",
+      "price": 39.90,
+      "description": "How to Win Friends and Influence People is a timeless self-help classic that teaches the art of interpersonal communication and persuasion. Dale Carnegie shares practical advice and real-life examples for building relationships, gaining trust, and achieving success in both personal and professional life.",
+      "stars": 4.7
     },
     {
       "id": 21,
@@ -201,7 +261,10 @@
       "author": "Napoleon Hill",
       "publicationDate": "1937-03-01",
       "numberOfPages": 238,
-      "coverImage": "https://covers.openlibrary.org/b/id/8244031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8244031-L.jpg",
+      "price": 36.90,
+      "description": "Think and Grow Rich is a motivational classic that explores the principles of success and wealth creation. Napoleon Hill distills the insights of successful individuals into practical steps for achieving one's goals. The book emphasizes the power of belief, persistence, and a positive mindset.",
+      "stars": 4.5
     },
     {
       "id": 22,
@@ -210,7 +273,10 @@
       "author": "Tony Robbins",
       "publicationDate": "1991-11-01",
       "numberOfPages": 544,
-      "coverImage": "https://covers.openlibrary.org/b/id/8254031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8254031-L.jpg",
+      "price": 49.50,
+      "description": "Awaken the Giant Within is Tony Robbins's empowering guide to taking control of one's destiny. Through powerful strategies, Robbins shows readers how to master emotions, finances, relationships, and life itself. The book inspires readers to unlock their potential and create lasting positive change.",
+      "stars": 4.6
     },
     {
       "id": 23,
@@ -219,7 +285,10 @@
       "author": "Mark Manson",
       "publicationDate": "2016-09-13",
       "numberOfPages": 224,
-      "coverImage": "https://covers.openlibrary.org/b/id/8264031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8264031-L.jpg",
+      "price": 41.90,
+      "description": "The Subtle Art of Not Giving a F*ck offers a refreshing, no-nonsense approach to living a meaningful life. Mark Manson argues that embracing limitations and accepting the inevitability of pain leads to genuine happiness. With humor and honesty, this book challenges readers to focus on what truly matters.",
+      "stars": 4.5
     },
     {
       "id": 24,
@@ -228,7 +297,10 @@
       "author": "Viktor E. Frankl",
       "publicationDate": "1946-01-01",
       "numberOfPages": 200,
-      "coverImage": "https://covers.openlibrary.org/b/id/8274031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8274031-L.jpg",
+      "price": 38.50,
+      "description": "Man's Search for Meaning chronicles Viktor Frankl's experiences as a Holocaust survivor and his development of logotherapy. The book explores the importance of finding purpose in life, even in the face of suffering. Frankl's insights offer hope, resilience, and a profound understanding of the human spirit.",
+      "stars": 4.7
     },
     {
       "id": 25,
@@ -237,7 +309,10 @@
       "author": "Jane Austen",
       "publicationDate": "1813-01-28",
       "numberOfPages": 279,
-      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg",
+      "price": 29.90,
+      "description": "Pride and Prejudice is a beloved romantic novel that explores the manners, morals, and marriage prospects of Elizabeth Bennet and her family in 19th-century England. Jane Austen's witty observations and memorable characters make this story a timeless reflection on love, class, and societal expectations.",
+      "stars": 4.8
     },
     {
       "id": 26,
@@ -246,7 +321,10 @@
       "author": "Herman Melville",
       "publicationDate": "1851-10-18",
       "numberOfPages": 585,
-      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8232031-L.jpg",
+      "price": 35.90,
+      "description": "Moby Dick is a monumental tale of obsession and revenge as Captain Ahab pursues the elusive white whale across the oceans. Told through the eyes of Ishmael, the novel delves into themes of fate, nature, and the limits of human understanding. Melville's epic is a cornerstone of American literature.",
+      "stars": 4.4
     },
     {
       "id": 27,
@@ -255,7 +333,10 @@
       "author": "Emily Brontë",
       "publicationDate": "1847-12-01",
       "numberOfPages": 416,
-      "coverImage": "https://covers.openlibrary.org/b/id/8242031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8242031-L.jpg",
+      "price": 31.90,
+      "description": "Wuthering Heights is a haunting tale of love, passion, and revenge set on the Yorkshire moors. The story of Heathcliff and Catherine Earnshaw is marked by intense emotions and tragic consequences. Emily Brontë's only novel is a masterpiece of gothic romance and psychological depth.",
+      "stars": 4.6
     },
     {
       "id": 28,
@@ -264,7 +345,10 @@
       "author": "Charles Dickens",
       "publicationDate": "1861-08-01",
       "numberOfPages": 505,
-      "coverImage": "https://covers.openlibrary.org/b/id/8252031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8252031-L.jpg",
+      "price": 34.90,
+      "description": "Great Expectations follows the life of Pip, an orphan who dreams of rising above his humble beginnings. Through unexpected fortune, unrequited love, and personal growth, Dickens weaves a tale rich in memorable characters and moral lessons. The novel is a profound exploration of ambition, loyalty, and self-discovery.",
+      "stars": 4.5
     },
     {
       "id": 29,
@@ -273,7 +357,10 @@
       "author": "Fyodor Dostoevsky",
       "publicationDate": "1866-01-01",
       "numberOfPages": 430,
-      "coverImage": "https://covers.openlibrary.org/b/id/8262031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8262031-L.jpg",
+      "price": 36.90,
+      "description": "Crime and Punishment delves into the mind of Raskolnikov, a destitute student who commits murder and grapples with guilt, morality, and redemption. Dostoevsky's psychological masterpiece explores the complexities of conscience and the consequences of crime.",
+      "stars": 4.7
     },
     {
       "id": 30,
@@ -282,7 +369,10 @@
       "author": "F. Scott Fitzgerald",
       "publicationDate": "1925-04-10",
       "numberOfPages": 180,
-      "coverImage": "https://covers.openlibrary.org/b/id/8272031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8272031-L.jpg",
+      "price": 28.90,
+      "description": "The Great Gatsby captures the glamour and disillusionment of the Roaring Twenties through the eyes of Nick Carraway. He becomes entangled in the world of the mysterious Jay Gatsby, whose lavish parties and unrequited love for Daisy Buchanan reveal the emptiness beneath the glittering surface.",
+      "stars": 4.5
     },
     {
       "id": 31,
@@ -291,7 +381,10 @@
       "author": "Leo Tolstoy",
       "publicationDate": "1869-01-01",
       "numberOfPages": 1225,
-      "coverImage": "https://covers.openlibrary.org/b/id/8282031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8282031-L.jpg",
+      "price": 54.90,
+      "description": "War and Peace is an epic chronicle of Russian society during the Napoleonic Wars. Through the lives of Pierre, Natasha, and Andrei, Tolstoy examines love, fate, history, and the search for meaning. The novel's scope and insight make it one of the greatest works of world literature.",
+      "stars": 4.6
     },
     {
       "id": 32,
@@ -300,7 +393,10 @@
       "author": "Miguel de Cervantes",
       "publicationDate": "1605-01-16",
       "numberOfPages": 863,
-      "coverImage": "https://covers.openlibrary.org/b/id/8292031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8292031-L.jpg",
+      "price": 38.90,
+      "description": "Don Quixote is a timeless satire that follows the adventures of Alonso Quixano, who becomes the knight-errant Don Quixote. Accompanied by his loyal squire Sancho Panza, he sets out to revive chivalry and right wrongs, often with comic and poignant results. Cervantes' masterpiece explores illusion, reality, and the enduring power of dreams.",
+      "stars": 4.5
     },
     {
       "id": 33,
@@ -309,7 +405,10 @@
       "author": "Bram Stoker",
       "publicationDate": "1897-05-26",
       "numberOfPages": 418,
-      "coverImage": "https://covers.openlibrary.org/b/id/8302031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8302031-L.jpg",
+      "price": 32.90,
+      "description": "Dracula is a gothic horror classic that chronicles the efforts of Jonathan Harker and his companions to defeat Count Dracula, a centuries-old vampire who threatens Victorian England. Through letters, diaries, and newspaper articles, Stoker crafts a chilling tale of terror, superstition, and the battle between good and evil.",
+      "stars": 4.6
     },
     {
       "id": 34,
@@ -318,7 +417,10 @@
       "author": "Mary Shelley",
       "publicationDate": "1818-01-01",
       "numberOfPages": 280,
-      "coverImage": "https://covers.openlibrary.org/b/id/8312031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8312031-L.jpg",
+      "price": 33.90,
+      "description": "Frankenstein is the haunting story of Victor Frankenstein, a young scientist who creates a living being from dead matter. The creature's quest for acceptance and revenge leads to tragedy and horror. Shelley's novel explores themes of ambition, responsibility, and the dangers of unchecked scientific pursuit.",
+      "stars": 4.5
     },
     {
       "id": 35,
@@ -327,7 +429,10 @@
       "author": "Stephen King",
       "publicationDate": "1977-01-28",
       "numberOfPages": 447,
-      "coverImage": "https://covers.openlibrary.org/b/id/8322031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8322031-L.jpg",
+      "price": 36.90,
+      "description": "The Shining is a psychological horror novel about Jack Torrance, an aspiring writer who becomes the winter caretaker of the isolated Overlook Hotel. As supernatural forces take hold, Jack descends into madness, threatening his wife and son. King's chilling narrative explores isolation, addiction, and the power of evil.",
+      "stars": 4.6
     },
     {
       "id": 36,
@@ -336,7 +441,10 @@
       "author": "Stephen King",
       "publicationDate": "1986-09-15",
       "numberOfPages": 1138,
-      "coverImage": "https://covers.openlibrary.org/b/id/8332031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8332031-L.jpg",
+      "price": 48.90,
+      "description": "It is a sprawling horror epic that follows a group of childhood friends who confront a shape-shifting entity terrorizing their hometown of Derry, Maine. Alternating between past and present, the novel explores themes of memory, trauma, and the power of friendship to overcome evil.",
+      "stars": 4.7
     },
     {
       "id": 37,
@@ -345,7 +453,10 @@
       "author": "William Peter Blatty",
       "publicationDate": "1971-06-01",
       "numberOfPages": 340,
-      "coverImage": "https://covers.openlibrary.org/b/id/8342031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8342031-L.jpg",
+      "price": 34.90,
+      "description": "The Exorcist is a terrifying story of a young girl possessed by a demonic force, and the struggle of two priests to save her soul. Blatty's novel delves into faith, evil, and the battle between science and the supernatural, leaving a lasting mark on horror fiction.",
+      "stars": 4.5
     },
     {
       "id": 38,
@@ -354,7 +465,10 @@
       "author": "H.P. Lovecraft",
       "publicationDate": "1928-02-01",
       "numberOfPages": 43,
-      "coverImage": "https://covers.openlibrary.org/b/id/8352031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8352031-L.jpg",
+      "price": 22.90,
+      "description": "The Call of Cthulhu is a seminal work of cosmic horror that introduces the enigmatic and terrifying entity Cthulhu. Through fragmented accounts and chilling discoveries, Lovecraft weaves a tale of ancient secrets, madness, and humanity's insignificance in the universe.",
+      "stars": 4.4
     },
     {
       "id": 39,
@@ -363,7 +477,10 @@
       "author": "Thomas Harris",
       "publicationDate": "1988-05-19",
       "numberOfPages": 338,
-      "coverImage": "https://covers.openlibrary.org/b/id/8362031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8362031-L.jpg",
+      "price": 37.90,
+      "description": "The Silence of the Lambs is a chilling psychological thriller featuring FBI trainee Clarice Starling and the brilliant, cannibalistic Dr. Hannibal Lecter. As Starling seeks Lecter's help to catch a serial killer, a deadly game of manipulation and suspense unfolds.",
+      "stars": 4.6
     },
     {
       "id": 40,
@@ -372,7 +489,10 @@
       "author": "Shirley Jackson",
       "publicationDate": "1959-10-16",
       "numberOfPages": 246,
-      "coverImage": "https://covers.openlibrary.org/b/id/8372031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8372031-L.jpg",
+      "price": 32.90,
+      "description": "The Haunting of Hill House is a masterful tale of supernatural terror. Four strangers arrive at the mysterious Hill House to investigate its dark past, but the house's malevolent forces soon prey on their deepest fears. Jackson’s novel is a psychological exploration of fear, isolation, and the power of the unknown.",
+      "stars": 4.5
     },
     {
       "id": 41,
@@ -381,7 +501,10 @@
       "author": "Jane Austen",
       "publicationDate": "1813-01-28",
       "numberOfPages": 279,
-      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8222031-L.jpg",
+      "price": 29.90,
+      "description": "Pride and Prejudice is a beloved romantic novel that explores the manners, morals, and marriage prospects of Elizabeth Bennet and her family in 19th-century England. Jane Austen's witty observations and memorable characters make this story a timeless reflection on love, class, and societal expectations.",
+      "stars": 4.8
     },
     {
       "id": 42,
@@ -390,7 +513,10 @@
       "author": "Charlotte Brontë",
       "publicationDate": "1847-10-16",
       "numberOfPages": 500,
-      "coverImage": "https://covers.openlibrary.org/b/id/8382031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8382031-L.jpg",
+      "price": 34.50,
+      "description": "Jane Eyre is the story of an orphaned girl who overcomes hardship, cruelty, and isolation to become a governess at Thornfield Hall. There, she falls in love with the enigmatic Mr. Rochester and uncovers dark secrets. Brontë's powerful novel explores themes of independence, morality, and resilience.",
+      "stars": 4.7
     },
     {
       "id": 43,
@@ -399,7 +525,10 @@
       "author": "Emily Brontë",
       "publicationDate": "1847-12-01",
       "numberOfPages": 416,
-      "coverImage": "https://covers.openlibrary.org/b/id/8392031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8392031-L.jpg",
+      "price": 31.90,
+      "description": "Wuthering Heights is a haunting tale of love, passion, and revenge set on the Yorkshire moors. The story of Heathcliff and Catherine Earnshaw is marked by intense emotions and tragic consequences. Emily Brontë's only novel is a masterpiece of gothic romance and psychological depth.",
+      "stars": 4.6
     },
     {
       "id": 44,
@@ -408,7 +537,10 @@
       "author": "Margaret Mitchell",
       "publicationDate": "1936-06-30",
       "numberOfPages": 1037,
-      "coverImage": "https://covers.openlibrary.org/b/id/8402031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8402031-L.jpg",
+      "price": 49.90,
+      "description": "Gone with the Wind is an epic love story set against the backdrop of the American Civil War. Scarlett O'Hara, the indomitable heroine, navigates love, loss, and survival in a changing world. Mitchell's sweeping narrative is a classic of historical romance and resilience.",
+      "stars": 4.6
     },
     {
       "id": 45,
@@ -417,7 +549,10 @@
       "author": "Leo Tolstoy",
       "publicationDate": "1877-01-01",
       "numberOfPages": 864,
-      "coverImage": "https://covers.openlibrary.org/b/id/8412031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8412031-L.jpg",
+      "price": 39.90,
+      "description": "Anna Karenina is a tragic tale of love and betrayal in imperial Russia. The passionate affair between Anna and Count Vronsky defies social conventions, leading to heartbreak and ruin. Tolstoy's novel is a profound exploration of desire, duty, and the complexities of human relationships.",
+      "stars": 4.5
     },
     {
       "id": 46,
@@ -426,7 +561,10 @@
       "author": "Nicholas Sparks",
       "publicationDate": "1996-10-01",
       "numberOfPages": 214,
-      "coverImage": "https://covers.openlibrary.org/b/id/8422031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8422031-L.jpg",
+      "price": 28.50,
+      "description": "The Notebook is a moving love story that spans decades. Noah and Allie fall in love in their youth, but are separated by circumstance and class. Years later, their enduring love is tested by memory and time. Sparks's poignant novel is a celebration of devotion and second chances.",
+      "stars": 4.7
     },
     {
       "id": 47,
@@ -435,7 +573,10 @@
       "author": "Nicholas Sparks",
       "publicationDate": "1999-10-01",
       "numberOfPages": 240,
-      "coverImage": "https://covers.openlibrary.org/b/id/8432031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8432031-L.jpg",
+      "price": 27.90,
+      "description": "A Walk to Remember tells the heartfelt story of Landon and Jamie, two teenagers from different backgrounds who find love and faith in each other. Their journey is marked by hope, loss, and the power of forgiveness. Sparks's novel is a tender exploration of young love and transformation.",
+      "stars": 4.6
     },
     {
       "id": 48,
@@ -444,7 +585,10 @@
       "author": "Diana Gabaldon",
       "publicationDate": "1991-06-01",
       "numberOfPages": 850,
-      "coverImage": "https://covers.openlibrary.org/b/id/8442031-L.jpg"
+      "coverImage": "https://covers.openlibrary.org/b/id/8442031-L.jpg",
+      "price": 46.90,
+      "description": "Outlander is a sweeping historical romance that transports Claire Randall, a World War II nurse, back in time to 18th-century Scotland. There, she becomes entangled in political intrigue and a passionate love affair with Jamie Fraser. Gabaldon's novel blends adventure, history, and romance in a captivating tale.",
+      "stars": 4.7
     }
   ]
 }
