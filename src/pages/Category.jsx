@@ -1,14 +1,14 @@
-// Category.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const Category = () => {
     const { name } = useParams();
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Mapeamento para exibir nome capitalizado no título
     const categoryDisplayNames = {
         aventura: 'Adventure',
         ficcao: 'Fiction',
@@ -65,7 +65,9 @@ const Category = () => {
                                 <div className="mt-auto d-flex flex-column gap-2">
                                     <button className="btn btn-outline-primary"><i className="bi bi-cart"></i> Add to Cart</button>
                                     <button className="btn btn-outline-danger"><i className="bi bi-heart"></i> Favorite</button>
-                                    <button className="btn btn-outline-secondary"><i className="bi bi-eye"></i> View Details</button>
+                                    <Link to={`/book/${book.id}`} className="btn btn-outline-secondary">
+                                        <i className="bi bi-eye"></i> View Details
+                                    </Link>
                                 </div>
                             </div>
                         </div>

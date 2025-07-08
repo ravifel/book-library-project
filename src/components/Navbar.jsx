@@ -27,7 +27,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
             <Link className="navbar-brand" to="/home">📚 Book Library</Link>
 
-            {/* Botão para abrir o menu em telas pequenas */}
+            {/* Button to open the menu on small screens */}
             <button
                 className="navbar-toggler"
                 type="button"
@@ -46,7 +46,7 @@ const Navbar = () => {
                         <Link className="nav-link" to="/home">Início</Link>
                     </li>
 
-                    {/* Dropdown de categorias */}
+                    {/* Category Dropdown */}
                     <li className="nav-item dropdown">
                         <span
                             className="nav-link dropdown-toggle"

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -60,9 +62,9 @@ const Home = () => {
                   <button className="btn btn-outline-danger">
                     <i className="bi bi-heart"></i> Favorite
                   </button>
-                  <button className="btn btn-outline-secondary">
+                  <Link to={`/book/${book.id}`} className="btn btn-outline-secondary">
                     <i className="bi bi-eye"></i> View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
