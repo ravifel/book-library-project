@@ -10,6 +10,15 @@ const ProductCard = ({ product }) => {
     const productName = product.nameProduct || product.nameBook;
     const productAuthor = product.author || product.seller || "Unknown";
     const productPrice = product.price?.toFixed(2);
+    const productCategory = product.category || "Unknown";
+
+    // Function to truncate the description
+    const truncateDescription = (desc, length = 40) => {
+        if (!desc) return "";
+        return desc.length > length ? desc.slice(0, length) + "..." : desc;
+    };
+
+    const shortDescription = truncateDescription(product.description, 80); // 80 characters
 
     return (
         <div
@@ -20,7 +29,7 @@ const ProductCard = ({ product }) => {
                 borderRadius: "10px"
             }}
         >
-            {/* Imagem + Nome clicável */}
+            {/* Image + Clickable Name */}
             <Link
                 to={`/book/${product.id}`}
                 className="text-decoration-none text-dark"
@@ -40,15 +49,20 @@ const ProductCard = ({ product }) => {
                     }}
                 />
                 <h5 className="card-title fw-bold">{productName}</h5>
+                <p
+                    className="text-secondary mb-1"
+                    style={{ fontSize: "0.85em", fontStyle: "italic" }}
+                >
+                    {productCategory}
+                </p>
+                <p className="text-muted" style={{ fontSize: "0.85em", minHeight: '48px' }}>
+                    {shortDescription}
+                </p>
             </Link>
-
-            {/* Autor e Preço */}
             <div className="px-3">
                 <p className="text-muted mb-1" style={{ fontSize: "0.95em" }}>{productAuthor}</p>
                 <div style={{ fontWeight: 600, color: "var(--primary)" }}>${productPrice}</div>
             </div>
-
-            {/* Botões */}
             <div className="d-flex justify-content-between align-items-center px-3 pb-3 mt-3">
                 <button
                     className="btn btn-sm"

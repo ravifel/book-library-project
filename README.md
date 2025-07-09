@@ -3,12 +3,6 @@
 This is a front-end study project built with **React.js**, **JavaScript**, and **Bootstrap**, using a fake API with **JSON Server**.  
 The system simulates a virtual book library with a focus on:
 
-- User authentication
-- Protected routes
-- Modular structure
-- Category-based navigation
-- Saving favorite books
-
 ---
 
 ## 🚀 Technologies Used
@@ -38,21 +32,6 @@ book-library/
 ├── package.json
 └── README.md
 ```
-
----
-
-## ✅ Features Implemented
-
-- [x] **Login** page with form validation and authentication via JSON Server
-- [x] **Home** page accessible only after login
-- [x] **Profile** page displaying user name and email
-- [x] Protected **Favorites** page
-- [x] **Navbar** with menu, logged user’s name, and logout button
-- [x] Dynamic **category dropdown** (Adventure, Fiction, etc.)
-- [x] Full routing setup using React Router DOM
-- [x] **Protected routes**: unauthenticated users are redirected
-- [x] Authenticated user is stored in `localStorage`
-- [x] Modular organization with separation of components, pages, styles, and services
 
 ---
 

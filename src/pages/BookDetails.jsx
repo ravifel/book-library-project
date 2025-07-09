@@ -124,7 +124,6 @@ const BookDetails = () => {
                     <div className="mb-2"><strong style={{ color: "var(--primary)" }}>Publication Date:</strong> {new Date(book.publicationDate).toLocaleDateString()}</div>
                     <div className="mb-4"><strong style={{ color: "var(--primary)" }}>Number of Pages:</strong> {book.numberOfPages}</div>
                     <div className="d-flex flex-wrap gap-2 mb-3">
-                        {/* Botão Carrinho: verde */}
                         <button
                             className="btn"
                             style={{
@@ -147,7 +146,6 @@ const BookDetails = () => {
                             <i className="bi bi-cart"></i>
                             {isInCart(book.id) ? " Added to Cart" : " Add to Cart"}
                         </button>
-                        {/* Botão Favorito: vermelho */}
                         <button
                             className="btn"
                             style={{

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useFavorites } from "../components/FavoritesContext";
-import { useCart } from "../components/CartContext";
 import ProductCard from '../components/ProductCard';
+import SearchBar from '../components/SearchBar';
+
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { isFavorite, toggleFavorite } = useFavorites();
-  const { addToCart, isInCart } = useCart();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios.get('http://localhost:5000/books')
@@ -33,20 +31,42 @@ const Home = () => {
     );
   }
 
-  const truncateDescription = (desc, length = 40) => {
-    if (!desc) return "";
-    return desc.length > length ? desc.slice(0, length) + "..." : desc;
+  const filterBooks = (books, searchTerm) => {
+    if (!searchTerm) return books;
+
+    return books.filter(book => {
+      const searchableText = `
+        ${book.nameBook}
+        ${book.category}
+        ${book.author}
+        ${book.description}
+        ${book.publicationDate}
+        ${book.numberOfPages}
+        ${book.price}
+      `.toLowerCase();
+
+      return searchableText.includes(searchTerm.toLowerCase());
+    });
   };
+
+  const filteredBooks = filterBooks(books, searchTerm);
 
   return (
     <div className="container py-5">
       <h1 className="mb-4 text-center" style={{ color: "var(--primary)", fontWeight: "bold" }}>All Books</h1>
+      <SearchBar value={searchTerm} onChange={setSearchTerm} />
       <div className="row">
-        {books.map(book => (
+        {filteredBooks.length === 0 && (
+          <div className="text-center py-5">
+            <p>No products found{searchTerm ? ` for "${searchTerm}"` : '.'}</p>
+          </div>
+        )}
+        {filteredBooks.map(book => (
           <div key={book.id} className="col-md-3 mb-4">
             <ProductCard product={book} />
           </div>
         ))}
+
       </div>
     </div>
   );

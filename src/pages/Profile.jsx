@@ -30,7 +30,7 @@ const Profile = () => {
             const reader = new FileReader();
             reader.onload = function (evt) {
                 setAvatar(evt.target.result);
-                // Atualiza user no localStorage
+                // Update user in localStorage
                 const updatedUser = { ...user, avatar: evt.target.result };
                 setUser(updatedUser);
                 localStorage.setItem('user', JSON.stringify(updatedUser));

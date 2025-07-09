@@ -1,17 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useFavorites } from "../components/FavoritesContext";
-import { useCart } from "../components/CartContext";
 import ProductCard from '../components/ProductCard';
+import SearchBar from '../components/SearchBar';
 
 const Favorites = () => {
-    const { favorites, isFavorite, toggleFavorite } = useFavorites();
-    const { addToCart, isInCart } = useCart();
+    const { favorites } = useFavorites();
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const truncateDescription = (desc, length = 40) => {
-        if (!desc) return "";
-        return desc.length > length ? desc.slice(0, length) + "..." : desc;
+    // Function to filter favorites according to the term entered
+    const filterFavorites = (favorites, term) => {
+        if (!term) return favorites;
+
+        return favorites.filter(book => {
+            const searchableText = `
+                ${book.nameBook}
+                ${book.category}
+                ${book.author}
+                ${book.description}
+                ${book.publicationDate}
+                ${book.numberOfPages}
+                ${book.price}
+            `.toLowerCase();
+
+            return searchableText.includes(term.toLowerCase());
+        });
     };
+
+    const filteredFavorites = filterFavorites(favorites, searchTerm);
 
     if (favorites.length === 0) {
         return (
@@ -27,12 +42,21 @@ const Favorites = () => {
     return (
         <div className="container py-5">
             <h1 className="mb-4 text-center" style={{ color: "var(--primary)", fontWeight: "bold" }}>📚 Favorites </h1>
+            <SearchBar
+                value={searchTerm}
+                onChange={setSearchTerm}
+                onSearch={() => { }}
+            />
             <div className="row">
-                {favorites.map(book => (
-                    <div key={book.id} className="col-md-3 mb-4">
-                        <ProductCard product={book} />
-                    </div>
-                ))}
+                {filteredFavorites.length > 0 ? (
+                    filteredFavorites.map(book => (
+                        <div key={book.id} className="col-md-3 mb-4">
+                            <ProductCard product={book} />
+                        </div>
+                    ))
+                ) : (
+                    <p className="text-center">No favorite books found for "{searchTerm}"</p>
+                )}
             </div>
         </div>
     );

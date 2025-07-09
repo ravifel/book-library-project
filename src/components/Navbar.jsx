@@ -28,7 +28,7 @@ const Navbar = () => {
         closeMobileMenu();
     };
 
-    // Fecha o menu sanduíche em telas pequenas após clicar numa opção
+    // Closes the sandwich menu on small screens after clicking an option
     const closeMobileMenu = () => {
         const navbarToggler = document.querySelector('.navbar-toggler');
         const navbarCollapse = document.querySelector('.navbar-collapse');
