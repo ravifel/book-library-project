@@ -52,11 +52,7 @@ const Favorites = () => {
     return (
         <div className="container py-5">
             <MainTitle> Favorites ♡ </MainTitle>
-            <SearchBar
-                value={searchTerm}
-                onChange={setSearchTerm}
-                onSearch={() => { }}
-            />
+            <SearchBar onSearch={setSearchTerm} />
             <div className="row">
                 {booksToShow.length > 0 ? (
                     booksToShow.map(book => (

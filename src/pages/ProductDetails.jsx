@@ -3,33 +3,8 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useFavorites } from "../components/FavoritesContext";
 import { useCart } from "../components/CartContext";
+import StarRating from "../components/StarRating";
 
-// Star rating component
-const StarRating = ({ rating = 0 }) => {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating - fullStars >= 0.25 && rating - fullStars < 0.75;
-    const rounded = Math.round(rating * 2) / 2;
-    const stars = [];
-
-    for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(rounded)) {
-            stars.push(<i key={i} className="bi bi-star-fill" style={{ color: "#FFD700", fontSize: 22 }}></i>);
-        } else if (i === Math.floor(rounded) && rounded % 1 !== 0) {
-            stars.push(<i key={i} className="bi bi-star-half" style={{ color: "#FFD700", fontSize: 22 }}></i>);
-        } else {
-            stars.push(<i key={i} className="bi bi-star" style={{ color: "#FFD700", fontSize: 22 }}></i>);
-        }
-    }
-
-    return (
-        <div className="d-flex align-items-center">
-            {stars}
-            <span style={{ marginLeft: 8, color: "var(--primary)", fontWeight: 500, fontSize: 18 }}>
-                {rating.toFixed(1)}
-            </span>
-        </div>
-    );
-};
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -104,7 +79,7 @@ const ProductDetails = () => {
 
                         {/* Actions block: stars, favorite, cart */}
                         <div className="mb-3" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                            <StarRating rating={book.stars || 0} />
+                            <StarRating rating={book.stars || 0} size={20} />
 
                             {/* Favorite button */}
                             <button

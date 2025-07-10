@@ -82,11 +82,7 @@ const Category = () => {
             <MainTitle>
                 {(categoryDisplayNames[name.toLowerCase()] || name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())} 🕮
             </MainTitle>
-            <SearchBar
-                value={searchTerm}
-                onChange={setSearchTerm}
-                onSearch={() => { }}
-            />
+            <SearchBar onSearch={setSearchTerm} />
             <div className="row">
                 {booksToShow.length > 0 ? (
                     booksToShow.map(book => (

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFavorites } from './FavoritesContext';
 import { useCart } from './CartContext';
+import StarRating from "../components/StarRating";
 
 const ProductCard = ({ product }) => {
     const { isFavorite, toggleFavorite } = useFavorites();
@@ -10,6 +11,7 @@ const ProductCard = ({ product }) => {
     const productName = product.nameProduct || product.nameBook;
     const productAuthor = product.author || product.seller || "Unknown";
     const productPrice = product.price?.toFixed(2);
+    const productStars = product.stars;
     const productCategory = product.category || "Unknown";
 
     // Function to truncate the description
@@ -56,7 +58,7 @@ const ProductCard = ({ product }) => {
                     className="text-secondary mb-1"
                     style={{ fontSize: "0.85em", fontStyle: "italic" }}
                 >
-                    {productCategory}
+                    {productCategory} <StarRating rating={productStars || 0} size={15} />
                 </p>
                 <p className="text-muted" style={{ fontSize: "0.85em", minHeight: '48px' }}>
                     {shortDescription}

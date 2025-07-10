@@ -20,12 +20,7 @@ const Cart = () => {
     return (
         <div className="container py-5">
             <MainTitle>Shopping cart 🛒</MainTitle>
-
-            <SearchBar
-                value={searchTerm}
-                onChange={setSearchTerm}
-            />
-
+            <SearchBar onSearch={setSearchTerm} />
             <div className="list-group">
                 {filteredCart.length === 0 && (
                     <div className="text-center py-5">
