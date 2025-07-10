@@ -54,7 +54,7 @@ const Navbar = () => {
                     }}
                     onClick={closeMobileMenu}
                 >
-                    📚 Bookfy
+                    📘Bookfy
                 </Link>
                 <button
                     className="navbar-toggler"

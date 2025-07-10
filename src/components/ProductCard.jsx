@@ -22,18 +22,21 @@ const ProductCard = ({ product }) => {
 
     return (
         <div
-            className="card shadow-sm h-100 d-flex flex-column justify-content-between"
+            className="card shadow-sm h-100 d-flex flex-column justify-content-between product-card"
+            tabIndex={-1}
             style={{
                 background: "var(--secondary)",
                 border: "1px solid var(--primary-card)",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                transition: "box-shadow 0.2s, border-color 0.2s, background 0.2s",
             }}
         >
-            {/* Image + Clickable Name */}
             <Link
-                to={`/book/${product.id}`}
-                className="text-decoration-none text-dark"
-                style={{ padding: "12px" }}
+                to={`/product/${product.id}`}
+                className="text-decoration-none text-dark product-card-link d-flex flex-column flex-grow-1"
+                style={{ padding: "12px", minHeight: 0, flex: 1 }}
+                tabIndex={0}
+                aria-label={`Ver detalhes de ${productName}`}
             >
                 <img
                     src={product.coverImage}
@@ -58,19 +61,18 @@ const ProductCard = ({ product }) => {
                 <p className="text-muted" style={{ fontSize: "0.85em", minHeight: '48px' }}>
                     {shortDescription}
                 </p>
-            </Link>
-            <div className="px-3">
                 <p className="text-muted mb-1" style={{ fontSize: "0.95em" }}>{productAuthor}</p>
                 <div style={{ fontWeight: 600, color: "var(--primary)" }}>${productPrice}</div>
-            </div>
-            <div className="d-flex justify-content-between align-items-center px-3 pb-3 mt-3">
+            </Link>
+            <div className="card-footer d-flex p-0 product-card-footer">
                 <button
-                    className="btn btn-sm"
+                    className="btn btn-sm w-50 m-0 rounded-0 border-0 border-end product-card-cart-btn"
                     style={{
                         background: "var(--button-cart-bg)",
                         color: "var(--button-cart-text)",
-                        border: "none",
-                        fontWeight: 500
+                        fontWeight: 500,
+                        borderRight: "1.5px solid var(--secondary-dark)",
+                        borderBottomLeftRadius: "10px"
                     }}
                     onClick={() =>
                         addToCart({
@@ -85,12 +87,12 @@ const ProductCard = ({ product }) => {
                 </button>
 
                 <button
-                    className="btn btn-sm"
+                    className="btn btn-sm w-50 m-0 rounded-0 border-0 product-card-fav-btn"
                     style={{
                         background: "var(--button-fav-bg)",
                         color: "var(--button-fav-text)",
-                        border: "none",
-                        fontWeight: 500
+                        fontWeight: 500,
+                        borderBottomRightRadius: "10px"
                     }}
                     onClick={() => toggleFavorite(product)}
                 >

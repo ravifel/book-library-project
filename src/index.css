@@ -82,6 +82,37 @@
   box-shadow: 0 2px 8px rgba(49, 73, 66, 0.04);
 }
 
+.product-card-link {
+  transition: background 0.2s;
+}
+
+.product-card-link:hover,
+.product-card-link:focus {
+  background: #dde9ff !important;
+  text-decoration: none;
+}
+
+.product-card-footer {
+  border-top: 1.5px solid var(--primary-card);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #fff;
+  min-height: 46px;
+}
+
+.product-card-cart-btn,
+.product-card-fav-btn {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.03em;
+}
+
+.product-card-cart-btn:disabled {
+  filter: grayscale(0.3) opacity(0.8);
+}
+
 /* Buttons */
 .btn-primary,
 .btn-success {
@@ -153,5 +184,26 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     border: 1px solid var(--primary-card);
     z-index: 1050;
+  }
+}
+
+/* Por padrão (mobile e telas médias), botão é abaixo do selector */
+.trash-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  position: static;
+}
+
+/* Só ABSOLUTO em telas realmente grandes */
+@media (min-width: 1300px) {
+  .trash-btn {
+    position: absolute;
+    right: -54px;
+    /* ajuste conforme necessário */
+    top: 0;
+    margin-top: 0;
+    z-index: 2;
   }
 }

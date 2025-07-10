@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
-import BookDetails from './pages/BookDetails';
+import ProductDetails from './pages/ProductDetails';
 import Favorites from './pages/Favorites';
 import Category from './pages/Category';
 import Profile from './pages/Profile';
@@ -68,7 +68,7 @@ const AppRoutes = () => {
                 <Route path="/book/:id" element={
                     <ProtectedRoute>
                         <PrivateLayout>
-                            <BookDetails />
+                            <ProductDetails />
                         </PrivateLayout>
                     </ProtectedRoute>
                 } />

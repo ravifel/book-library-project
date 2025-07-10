@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFavorites } from "../components/FavoritesContext";
 import { useCart } from "../components/CartContext";
+import MainTitle from '../components/MainTitle';
 
-const DEFAULT_AVATAR = "https://ui-avatars.com/api/?name=User&background=eee&color=555&rounded=true&size=128";
+
+const DEFAULT_AVATAR = "data:image/svg+xml;utf8,<svg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='64' cy='64' r='64' fill='%23eaeaea'/><circle cx='64' cy='52' r='28' fill='%23cccccc'/><ellipse cx='64' cy='100' rx='36' ry='20' fill='%23cccccc'/></svg>";
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -54,10 +56,10 @@ const Profile = () => {
                 maxWidth: '420px',
                 border: "1.5px solid var(--primary-card)",
                 background: "var(--secondary)",
-                boxShadow: "var(--box-shadow)"
+                boxShadow: "var(--box-shadow)",
+                marginTop: "3.0rem"
             }}>
-                <h2 className="mb-3 text-center" style={{ color: "var(--primary)" }}>My Profile</h2>
-
+                <MainTitle>My Profile</MainTitle>
                 {user ? (
                     <>
                         <div className="d-flex flex-column align-items-center mb-3">
