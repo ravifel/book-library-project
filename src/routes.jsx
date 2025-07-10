@@ -65,7 +65,7 @@ const AppRoutes = () => {
                     </ProtectedRoute>
                 } />
 
-                <Route path="/book/:id" element={
+                <Route path="/product/:id" element={
                     <ProtectedRoute>
                         <PrivateLayout>
                             <ProductDetails />

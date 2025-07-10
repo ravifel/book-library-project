@@ -62,7 +62,7 @@ const ProductCard = ({ product }) => {
                     {shortDescription}
                 </p>
                 <p className="text-muted mb-1" style={{ fontSize: "0.95em" }}>{productAuthor}</p>
-                <div style={{ fontWeight: 600, color: "var(--primary)" }}>${productPrice}</div>
+                <div style={{ fontWeight: 600, fontSize: "2.0rem", color: "var(--primary)" }}>${productPrice}</div>
             </Link>
             <div className="card-footer d-flex p-0 product-card-footer">
                 <button

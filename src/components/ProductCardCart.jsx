@@ -91,7 +91,7 @@ const ProductCardCart = ({
 
                 <div className="col-md-3 text-end">
                     <div>
-                        <b>${(product.price * product.quantity).toFixed(2)}</b> with Pix
+                        <b style={{ fontSize: "1.4rem" }}>${(product.price * product.quantity).toFixed(2)}</b> with Pix
                     </div>
                     <div className="text-muted" style={{ fontSize: "0.93em" }}>
                         or ${(product.price * product.quantity * 1.05).toFixed(2)} with credit card
