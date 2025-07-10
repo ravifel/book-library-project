@@ -45,7 +45,12 @@ const ProductCardCart = ({
                 </div>
 
                 <div className="col-md-5">
-                    <b>{product.nameProduct || product.nameBook}</b>
+                    <b>
+                        {product.nameProduct || product.nameBook}
+                        <span className="text-muted ms-2" style={{ fontSize: "0.95rem", fontWeight: 400 }}>
+                            (${product.price?.toFixed(2)} each)
+                        </span>
+                    </b>
                     <div style={{ fontSize: "0.93em" }}>
                         Product code:{" "}
                         <span className="text-muted">
@@ -53,6 +58,7 @@ const ProductCardCart = ({
                         </span>
                     </div>
                 </div>
+
 
                 {/* Quantity selector + trash can button */}
                 <div className="col-md-2 d-flex flex-column align-items-center position-relative">

@@ -4,16 +4,18 @@ import ProductCard from '../components/ProductCard';
 import SearchBar from '../components/SearchBar';
 import MainTitle from '../components/MainTitle';
 import Pagination from '../components/Pagination';
+import ProductSortFilter from '../components/ProductSortFilter';
 
 const Favorites = () => {
     const { favorites } = useFavorites();
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [sortOption, setSortOption] = useState("");
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, itemsPerPage]);
+    }, [searchTerm, itemsPerPage, sortOption]);
 
     const filterFavorites = (favorites, term) => {
         if (!term) return favorites;
@@ -26,17 +28,48 @@ const Favorites = () => {
                 ${book.publicationDate}
                 ${book.numberOfPages}
                 ${book.price}
+                ${book.stars}
             `.toLowerCase();
             return searchableText.includes(term.toLowerCase());
         });
     };
 
-    const filteredFavorites = filterFavorites(favorites, searchTerm);
+    // Sorting based on ProductSortFilter options
+    const sortBooks = (books) => {
+        const sorted = [...books];
+        switch (sortOption) {
+            case 'pagesAsc':
+                return sorted.sort((a, b) => a.numberOfPages - b.numberOfPages);
+            case 'pagesDesc':
+                return sorted.sort((a, b) => b.numberOfPages - a.numberOfPages);
+            case 'priceLowHigh':
+                return sorted.sort((a, b) => a.price - b.price);
+            case 'priceHighLow':
+                return sorted.sort((a, b) => b.price - a.price);
+            case 'newest':
+                return sorted.sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate));
+            case 'oldest':
+                return sorted.sort((a, b) => new Date(a.publicationDate) - new Date(b.publicationDate));
+            case 'titleAZ':
+                return sorted.sort((a, b) => (a.nameBook || '').localeCompare(b.nameBook || ''));
+            case 'titleZA':
+                return sorted.sort((a, b) => (b.nameBook || '').localeCompare(a.nameBook || ''));
+            case 'bestRated':
+                return sorted.sort((a, b) => b.stars - a.stars);
+            case 'worstRated':
+                return sorted.sort((a, b) => a.stars - b.stars);
+            default:
+                return sorted;
+        }
+    };
 
-    const totalItems = filteredFavorites.length;
+    const filteredFavorites = filterFavorites(favorites, searchTerm);
+    const sortedFavorites = sortBooks(filteredFavorites);
+
+    const totalItems = sortedFavorites.length;
     const startIdx = (currentPage - 1) * itemsPerPage;
     const endIdx = startIdx + itemsPerPage;
-    const booksToShow = filteredFavorites.slice(startIdx, endIdx);
+    const booksToShow = sortedFavorites.slice(startIdx, endIdx);
 
     if (favorites.length === 0) {
         return (
@@ -52,7 +85,13 @@ const Favorites = () => {
     return (
         <div className="container py-5">
             <MainTitle> Favorites ♡ </MainTitle>
-            <SearchBar onSearch={setSearchTerm} />
+
+            {/* Search and Filter */}
+            <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                <SearchBar onSearch={setSearchTerm} />
+                <ProductSortFilter sortOption={sortOption} onChange={setSortOption} />
+            </div>
+
             <div className="row">
                 {booksToShow.length > 0 ? (
                     booksToShow.map(book => (
@@ -64,6 +103,7 @@ const Favorites = () => {
                     <p className="text-center">No favorite books found for "{searchTerm}"</p>
                 )}
             </div>
+
             <Pagination
                 currentPage={currentPage}
                 totalItems={totalItems}

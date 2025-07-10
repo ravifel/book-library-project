@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import SearchBar from '../components/SearchBar';
 import MainTitle from '../components/MainTitle';
 import Pagination from '../components/Pagination';
+import ProductSortFilter from '../components/ProductSortFilter';
 
 const Category = () => {
     const { name } = useParams();
@@ -13,6 +14,7 @@ const Category = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [sortOption, setSortOption] = useState("");
 
     const categoryDisplayNames = {
         aventura: 'Adventure',
@@ -32,7 +34,7 @@ const Category = () => {
                 );
                 setBooks(filtered);
                 setLoading(false);
-                setSearchTerm(""); // Clears search when changing categories
+                setSearchTerm(""); // Clear search on category change
             })
             .catch(error => {
                 console.error("Error fetching books:", error);
@@ -42,7 +44,7 @@ const Category = () => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, itemsPerPage]);
+    }, [searchTerm, itemsPerPage, sortOption]);
 
     const filterBooks = (books, term) => {
         if (!term) return books;
@@ -55,17 +57,48 @@ const Category = () => {
                 ${book.publicationDate}
                 ${book.numberOfPages}
                 ${book.price}
+                ${book.stars}
             `.toLowerCase();
             return searchableText.includes(term.toLowerCase());
         });
     };
 
-    const filteredBooks = filterBooks(books, searchTerm);
+    // Sorting function
+    const sortBooks = (books) => {
+        const sorted = [...books];
+        switch (sortOption) {
+            case 'pagesAsc':
+                return sorted.sort((a, b) => a.numberOfPages - b.numberOfPages);
+            case 'pagesDesc':
+                return sorted.sort((a, b) => b.numberOfPages - a.numberOfPages);
+            case 'priceLowHigh':
+                return sorted.sort((a, b) => a.price - b.price);
+            case 'priceHighLow':
+                return sorted.sort((a, b) => b.price - a.price);
+            case 'newest':
+                return sorted.sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate));
+            case 'oldest':
+                return sorted.sort((a, b) => new Date(a.publicationDate) - new Date(b.publicationDate));
+            case 'titleAZ':
+                return sorted.sort((a, b) => (a.nameBook || '').localeCompare(b.nameBook || ''));
+            case 'titleZA':
+                return sorted.sort((a, b) => (b.nameBook || '').localeCompare(a.nameBook || ''));
+            case 'bestRated':
+                return sorted.sort((a, b) => b.stars - a.stars);
+            case 'worstRated':
+                return sorted.sort((a, b) => a.stars - b.stars);
+            default:
+                return sorted;
+        }
+    };
 
-    const totalItems = filteredBooks.length;
+    const filteredBooks = filterBooks(books, searchTerm);
+    const sortedBooks = sortBooks(filteredBooks);
+
+    const totalItems = sortedBooks.length;
     const startIdx = (currentPage - 1) * itemsPerPage;
     const endIdx = startIdx + itemsPerPage;
-    const booksToShow = filteredBooks.slice(startIdx, endIdx);
+    const booksToShow = sortedBooks.slice(startIdx, endIdx);
 
     if (loading) {
         return (
@@ -82,7 +115,13 @@ const Category = () => {
             <MainTitle>
                 {(categoryDisplayNames[name.toLowerCase()] || name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())} 🕮
             </MainTitle>
-            <SearchBar onSearch={setSearchTerm} />
+
+            {/* Search bar + sort filter */}
+            <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                <SearchBar onSearch={setSearchTerm} />
+                <ProductSortFilter sortOption={sortOption} onChange={setSortOption} />
+            </div>
+
             <div className="row">
                 {booksToShow.length > 0 ? (
                     booksToShow.map(book => (
@@ -96,6 +135,7 @@ const Category = () => {
                     </p>
                 )}
             </div>
+
             <Pagination
                 currentPage={currentPage}
                 totalItems={totalItems}
