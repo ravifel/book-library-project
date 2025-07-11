@@ -23,12 +23,12 @@ const AppRoutes = () => {
     return (
         <Router>
             <Routes>
-                {/* Rotas públicas */}
+                {/* Public routes */}
                 <Route path="/" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
 
-                {/* Rotas protegidas com layout privado */}
+                {/* Protected routes with private layout */}
                 <Route path="/home" element={
                     <ProtectedRoute>
                         <PrivateLayout>
