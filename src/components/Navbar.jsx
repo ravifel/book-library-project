@@ -140,6 +140,23 @@ const Navbar = () => {
                                 Favorites
                             </Link>
                         </li>
+                        <li className="nav-item d-flex align-items-center">
+                            <Link
+                                className="nav-link px-3"
+                                to="/orders"
+                                style={{
+                                    paddingTop: 0,
+                                    paddingBottom: 0,
+                                    height: 64,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    color: "var(--primary)"
+                                }}
+                                onClick={closeMobileMenu}
+                            >
+                                Meus Pedidos
+                            </Link>
+                        </li>
                         {/* Cart */}
                         <li className="nav-item d-flex align-items-center position-relative">
                             <Link

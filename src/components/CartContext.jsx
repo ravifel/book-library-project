@@ -52,6 +52,7 @@ export function CartProvider({ children }) {
     // Clears the entire cart
     function clearCart() {
         setCart([]);
+        localStorage.removeItem("cart");
     }
 
     // Checks if a product is in the cart

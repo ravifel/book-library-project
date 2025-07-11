@@ -14,6 +14,10 @@ import Profile from './pages/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import PrivateLayout from './components/PrivateLayout';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import OrderConfirmation from './pages/OrderConfirmation';
+import Orders from './pages/Orders';
+
 
 const AppRoutes = () => {
     return (
@@ -45,6 +49,33 @@ const AppRoutes = () => {
                     <ProtectedRoute>
                         <PrivateLayout>
                             <Cart />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                <Route path="/checkout" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Checkout />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+
+                <Route path="/order-confirmation" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <OrderConfirmation />
+                        </PrivateLayout>
+                    </ProtectedRoute>
+                } />
+
+                import Orders from './pages/Orders';
+                // ...
+                <Route path="/orders" element={
+                    <ProtectedRoute>
+                        <PrivateLayout>
+                            <Orders />
                         </PrivateLayout>
                     </ProtectedRoute>
                 } />

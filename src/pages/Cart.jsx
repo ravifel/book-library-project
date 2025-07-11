@@ -4,11 +4,13 @@ import SearchBar from '../components/SearchBar';
 import ProductCardCart from '../components/ProductCardCart';
 import MainTitle from '../components/MainTitle';
 import ProductSortFilter from '../components/ProductSortFilter';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const { cart, addToCart, decreaseQuantity, removeFromCart } = useCart();
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOption, setSortOption] = useState('');
+    const navigate = useNavigate();
 
     const filteredCart = cart.filter(product => {
         const searchableText = `
@@ -32,6 +34,10 @@ const Cart = () => {
 
     const sortedCart = sortCart(filteredCart);
 
+    // Calculate total value of the cart
+    const getTotal = (items) =>
+        items.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
     // Filters available for the cart
     const cartSortOptions = [
         { value: 'priceLowHigh', label: 'Price: Low to High' },
@@ -47,7 +53,7 @@ const Cart = () => {
                 <ProductSortFilter
                     sortOption={sortOption}
                     onChange={setSortOption}
-                    options={cartSortOptions} // Only the desired filters
+                    options={cartSortOptions}
                 />
             </div>
 
@@ -69,6 +75,29 @@ const Cart = () => {
                     />
                 ))}
             </div>
+
+            {/* Total and Checkout Button */}
+            {sortedCart.length > 0 && (
+                <>
+                    <div className="d-flex justify-content-end align-items-center mt-4">
+                        <h5>
+                            Total:&nbsp;
+                            <span style={{ color: "var(--primary)", fontWeight: 700 }}>
+                                ${getTotal(sortedCart).toFixed(2)}
+                            </span>
+                        </h5>
+                    </div>
+                    <div className="d-flex justify-content-end mt-3">
+                        <button
+                            className="btn btn-success"
+                            onClick={() => navigate('/checkout')}
+                            style={{ fontWeight: 600 }}
+                        >
+                            Prosseguir para Finalizar Pedido
+                        </button>
+                    </div>
+                </>
+            )}
         </div>
     );
 };
