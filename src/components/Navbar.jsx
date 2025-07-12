@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from "../components/CartContext";
+import ActionConfirmModal from "../components/ActionConfirmModal";
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const { getCartCount } = useCart();
     const cartCount = getCartCount();
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     const categories = ["Adventure", "Fiction", "Self-Help", "Classics", "Horror", "Romance"];
 
@@ -18,9 +20,18 @@ const Navbar = () => {
     }, []);
 
     const handleLogout = () => {
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
         localStorage.removeItem('user');
         closeMobileMenu();
+        setShowLogoutModal(false);
         navigate('/');
+    };
+
+    const cancelLogout = () => {
+        setShowLogoutModal(false);
     };
 
     const handleSelectCategory = (category) => {
@@ -154,7 +165,7 @@ const Navbar = () => {
                                 }}
                                 onClick={closeMobileMenu}
                             >
-                                Meus Pedidos
+                                My orders
                             </Link>
                         </li>
                         {/* Cart */}
@@ -207,6 +218,16 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
+            {/* Logout confirmation modal componentized */}
+            <ActionConfirmModal
+                show={showLogoutModal}
+                title="Confirm Logout"
+                message="Are you sure you want to logout?"
+                confirmLabel="Logout"
+                cancelLabel="Cancel"
+                onConfirm={confirmLogout}
+                onCancel={cancelLogout}
+            />
         </nav>
     );
 };

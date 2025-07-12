@@ -1,4 +1,3 @@
-// routes.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -17,7 +16,8 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Orders from './pages/Orders';
-
+import NotFound from './pages/NotFound';
+import ResetPassword from './pages/ResetPassword';
 
 const AppRoutes = () => {
     return (
@@ -61,7 +61,6 @@ const AppRoutes = () => {
                     </ProtectedRoute>
                 } />
 
-
                 <Route path="/order-confirmation" element={
                     <ProtectedRoute>
                         <PrivateLayout>
@@ -70,8 +69,6 @@ const AppRoutes = () => {
                     </ProtectedRoute>
                 } />
 
-                import Orders from './pages/Orders';
-                // ...
                 <Route path="/orders" element={
                     <ProtectedRoute>
                         <PrivateLayout>
@@ -102,6 +99,15 @@ const AppRoutes = () => {
                             <ProductDetails />
                         </PrivateLayout>
                     </ProtectedRoute>
+                } />
+
+                {/* 404 Not Found route */}
+                <Route path="*" element={
+                    <NotFound />
+                } />
+
+                <Route path="/reset-password" element={
+                    <ResetPassword />
                 } />
             </Routes>
         </Router>

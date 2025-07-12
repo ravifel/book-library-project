@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -93,8 +93,24 @@ const Login = () => {
                 </form>
 
                 <div className="text-center mt-3">
-                    <a href="/forgot-password" className="d-block" style={{ color: "var(--primary)", fontWeight: 500 }}>Forgot your password?</a>
-                    <a href="/register" className="d-block" style={{ color: "var(--primary)", fontWeight: 500 }}>Create an account</a>
+                    <Link to="/forgot-password"
+                        style={{
+                            color: "#2979ff",
+                            textDecoration: 'underline',
+                            fontSize: 15,
+                            display: "block"
+                        }}>
+                        Forgot your password?
+                    </Link>
+                    <Link to="/register"
+                        style={{
+                            color: "#2979ff",
+                            textDecoration: 'underline',
+                            fontSize: 15,
+                            display: "block"
+                        }}>
+                        Create an account
+                    </Link>
                 </div>
             </div>
         </div>

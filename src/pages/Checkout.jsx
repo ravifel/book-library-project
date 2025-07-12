@@ -1,83 +1,187 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useCart } from '../components/CartContext';
 import MainTitle from '../components/MainTitle';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { QRCodeSVG } from 'qrcode.react';
+import { calculateShippingByZipcode } from '../utils/shippingStates';
 
 const DEFAULT_PIX_KEY = "pix-company@example.com";
-const JUROS_PARCELADO = 0.02; // 2% monthly interest from the 11th installment
+const INSTALLMENT_INTEREST = 0.02; // 2% monthly interest from the 11th installment
 
-// Simple function to generate Pix payload
-function gerarPayloadPix({ chave, valor, nome = "Example Store", cidade = "SAO PAULO" }) {
-    const valorStr = valor.toFixed(2).replace('.', '');
-    let payload = `00020126420014BR.GOV.BCB.PIX01${chave.length.toString().padStart(2, "0")}${chave}`;
-    payload += `520400005303986540${valorStr}5802BR5913${nome.slice(0, 13)}6009${cidade.slice(0, 9)}62070503***6304`;
-    return payload;
-}
+const emptyAddress = {
+    street: '',
+    number: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+    zipCode: ''
+};
 
 const Checkout = () => {
     const { cart, clearCart } = useCart();
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
+    const [address, setAddress] = useState(emptyAddress);
+    const [shipping, setShipping] = useState(0);
+    const [deliveryInstructions, setDeliveryInstructions] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('Pix');
+    const [cardType, setCardType] = useState('Credit');
+    const [installments, setInstallments] = useState(1);
+    const [cardData, setCardData] = useState({ number: '', name: '', expiry: '', cvv: '' });
+    const [pixCopied, setPixCopied] = useState(false);
+    const [processing, setProcessing] = useState(false);
+    const [error, setError] = useState('');
+    const [cepError, setCepError] = useState('');
+
+    // Track the last cep searched/fetched
+    const lastFetchedCep = useRef('');
+
     // Load user from localStorage and fetch complete data from JSON server
     useEffect(() => {
         const loggedUser = JSON.parse(localStorage.getItem('user'));
         if (!loggedUser) return;
         axios.get(`http://localhost:5000/users?email=${loggedUser.email}`)
-            .then(res => setUser(res.data[0]))
+            .then(res => {
+                const userFromDb = res.data[0];
+                setUser(userFromDb);
+
+                // Always use backend address!
+                let addr = typeof userFromDb.address === 'string' ? emptyAddress : userFromDb.address;
+                setAddress(addr);
+
+                setDeliveryInstructions(userFromDb.deliveryInstructions || '');
+            })
             .catch(() => setUser(null));
     }, []);
 
-    // Delivery address
-    const [address, setAddress] = useState('');
-    const [editAddress, setEditAddress] = useState(false);
-
-    // Payment
-    const [paymentMethod, setPaymentMethod] = useState('Pix');
-    const [cardType, setCardType] = useState('Credit');
-    const [parcelas, setParcelas] = useState(1);
-    const [cardData, setCardData] = useState({ number: '', name: '', expiry: '', cvv: '' });
-    const [pixCopied, setPixCopied] = useState(false);
-
-    // UI Status
-    const [processing, setProcessing] = useState(false);
-    const [error, setError] = useState('');
-
-    // Set address from user data
+    // Set address and zip code from user data if available
     useEffect(() => {
-        if (user && user.address) setAddress(user.address);
+        if (user && user.address) {
+            let addr = typeof user.address === 'string' ? emptyAddress : user.address;
+            setAddress(addr);
+
+            if (user.deliveryInstructions) setDeliveryInstructions(user.deliveryInstructions);
+
+            const zip = addr.zipCode || '';
+            if (zip) setShipping(calculateShippingByZipcode(zip));
+        }
     }, [user]);
 
-    // Total cart value
+    // Function to clear address fields except zip code
+    const clearAddressFields = (cepValue) => ({
+        street: '',
+        number: '',
+        neighborhood: '',
+        city: '',
+        state: '',
+        zipCode: cepValue || ''
+    });
+
+    // Detect when user finishes typing a valid zip code (8 digits)
+    useEffect(() => {
+        const cepOnlyNumbers = address.zipCode?.replace(/\D/g, '');
+
+        // If the field was cleared or is incomplete, clear the error
+        if (!cepOnlyNumbers || cepOnlyNumbers.length === 0) {
+            setCepError('');
+            return;
+        }
+        // If the user is typing but hasn't completed 8 digits
+        if (cepOnlyNumbers.length > 0 && cepOnlyNumbers.length < 8) {
+            setCepError('Zip code must have 8 digits.');
+            return;
+        }
+
+        // Only do something if the zip code is valid (8 digits) and different from the last fetched
+        if (
+            cepOnlyNumbers &&
+            cepOnlyNumbers.length === 8 &&
+            cepOnlyNumbers !== lastFetchedCep.current
+        ) {
+            setCepError('');
+            // Clear fields (except zip code)
+            setAddress(prev => clearAddressFields(prev.zipCode));
+
+            // Wait for clearing (to ensure React updates state before fetching!)
+            setTimeout(() => {
+                axios.get(`https://viacep.com.br/ws/${cepOnlyNumbers}/json/`)
+                    .then(response => {
+                        if (!response.data.erro) {
+                            setAddress(prev => ({
+                                ...prev,
+                                street: response.data.logradouro || '',
+                                neighborhood: response.data.bairro || '',
+                                city: response.data.localidade || '',
+                                state: response.data.uf || '',
+                            }));
+                            setCepError('');
+                        } else {
+                            setCepError('Zip code not found.');
+                        }
+                        // Register the zip code to avoid unnecessary new fetches
+                        lastFetchedCep.current = cepOnlyNumbers;
+                    })
+                    .catch(() => setCepError('Error while fetching zip code.'));
+            }, 0);
+        }
+    }, [address.zipCode]);
+
+    // Update shipping cost when the user types a new zip code
+    useEffect(() => {
+        if (address.zipCode && address.zipCode.length >= 2)
+            setShipping(calculateShippingByZipcode(address.zipCode));
+    }, [address.zipCode]);
+
+    // Calculate total cart value
     const getTotal = () =>
         cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
-    // Installment calculation
-    const getParcelado = () => {
-        const total = getTotal();
-        if (parcelas <= 10) return { total, parcela: total / parcelas, juros: 0 };
-        const jurosTotal = total * Math.pow(1 + JUROS_PARCELADO, parcelas - 10);
+    // Calculate installment values (with interest above 10x)
+    const getInstallmentInfo = () => {
+        const total = getTotal() + shipping;
+        if (installments <= 10) return { total, installment: total / installments, interest: 0 };
+        const totalWithInterest = total * Math.pow(1 + INSTALLMENT_INTEREST, installments - 10);
         return {
-            total: jurosTotal,
-            parcela: jurosTotal / parcelas,
-            juros: jurosTotal - total
+            total: totalWithInterest,
+            installment: totalWithInterest / installments,
+            interest: totalWithInterest - total
         };
     };
 
-    // Submit order
+    // Handle address input change
+    const handleAddressChange = e => {
+        const { name, value } = e.target;
+        setAddress(prev => ({
+            ...prev,
+            [name]: name === "zipCode"
+                ? value.replace(/\D/g, '').replace(/^(\d{5})(\d)/, '$1-$2').slice(0, 9)
+                : value
+        }));
+        // If user is typing a new zip code, reset lastFetchedCep to guarantee future fetch
+        if (name === 'zipCode') {
+            lastFetchedCep.current = '';
+        }
+    };
+
+    // Handle order submit
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        if (!address) {
-            setError('Please provide a delivery address.');
+        // Basic address validation
+        if (!address.street || !address.number || !address.city || !address.state || !address.zipCode) {
+            setError('Please fill out the full delivery address.');
+            return;
+        }
+        if (!address.zipCode) {
+            setError('Please provide the zip code.');
             return;
         }
         if (paymentMethod === "Card") {
             if (
                 !cardData.number || !cardData.name || !cardData.expiry || !cardData.cvv ||
-                (cardType === "Installments" && (parcelas < 1 || parcelas > 12))
+                (cardType === "Installments" && (installments < 1 || installments > 12))
             ) {
                 setError("Please correctly fill in the card information.");
                 return;
@@ -93,14 +197,23 @@ const Checkout = () => {
                     price: item.price
                 })),
                 address,
+                deliveryInstructions,
                 paymentMethod,
+                shipping,
                 status: 'Awaiting payment confirmation',
                 createdAt: new Date().toISOString(),
                 paymentDetails: paymentMethod === "Card"
-                    ? { cardType, parcelas, ...cardData }
+                    ? { cardType, installments, ...cardData }
                     : { pix: true }
             };
             await axios.post('http://localhost:5000/orders', order);
+
+            // Update user address and delivery instructions in db.json
+            await axios.patch(`http://localhost:5000/users/${user.id}`, {
+                address,
+                deliveryInstructions
+            });
+
             clearCart();
             setTimeout(() => navigate('/order-confirmation'), 1700);
         } catch {
@@ -109,21 +222,22 @@ const Checkout = () => {
         setProcessing(false);
     };
 
+    // Copy Pix key to clipboard
     const handleCopyPix = () => {
         navigator.clipboard.writeText(user?.pixKey || DEFAULT_PIX_KEY);
         setPixCopied(true);
         setTimeout(() => setPixCopied(false), 1200);
     };
 
-    // Pix QR code
-    const valor = getTotal();
-    const chavePix = user?.pixKey || DEFAULT_PIX_KEY;
-    const payloadPix = gerarPayloadPix({
-        chave: chavePix,
-        valor,
-        nome: user?.name || "Example Store",
-        cidade: "SAO PAULO"
-    });
+    // Generate Pix QR code
+    const amount = getTotal() + shipping;
+    const pixKey = user?.pixKey || DEFAULT_PIX_KEY;
+    const pixPayload = (() => {
+        const amountStr = amount.toFixed(2).replace('.', '');
+        let payload = `00020126420014BR.GOV.BCB.PIX01${pixKey.length.toString().padStart(2, "0")}${pixKey}`;
+        payload += `520400005303986540${amountStr}5802BR5913${(user?.name || "Example Store").slice(0, 13)}6009SAO PAULO62070503***6304`;
+        return payload;
+    })();
 
     if (!user) {
         return (
@@ -141,28 +255,66 @@ const Checkout = () => {
         <div className="container py-5">
             <MainTitle>Checkout</MainTitle>
 
-            {/* Delivery address */}
-            <div className="mb-4">
-                <strong>Delivery Address:</strong><br />
-                {editAddress ? (
-                    <div className="d-flex gap-2 align-items-center">
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={address}
-                            onChange={e => setAddress(e.target.value)}
-                            style={{ maxWidth: 350 }}
+            {/* Address form */}
+            <form className="mb-4 p-3 border rounded" autoComplete="off">
+                <div className="row mb-2">
+                    <div className="col-md-8">
+                        <label className="form-label">Street</label>
+                        <input type="text" className="form-control" name="street" value={address.street}
+                            onChange={handleAddressChange} required />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label">Number</label>
+                        <input type="text" className="form-control" name="number" value={address.number}
+                            onChange={handleAddressChange} required />
+                    </div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-md-6">
+                        <label className="form-label">Neighborhood</label>
+                        <input type="text" className="form-control" name="neighborhood" value={address.neighborhood}
+                            onChange={handleAddressChange} required />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label">City</label>
+                        <input type="text" className="form-control" name="city" value={address.city}
+                            onChange={handleAddressChange} required />
+                    </div>
+                    <div className="col-md-2">
+                        <label className="form-label">State</label>
+                        <input type="text" className="form-control" name="state" value={address.state}
+                            onChange={handleAddressChange} required maxLength={2} />
+                    </div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-md-6">
+                        <label className="form-label">Zip Code</label>
+                        <input type="text" className="form-control" name="zipCode"
+                            value={address.zipCode}
+                            onChange={handleAddressChange}
+                            placeholder="00000-000"
+                            maxLength={9}
                             required
                         />
-                        <button className="btn btn-sm btn-secondary" onClick={() => setEditAddress(false)}>Save</button>
+                        {cepError && <div className="text-danger">{cepError}</div>}
+                        {shipping > 0 && (
+                            <span className="text-success">
+                                Shipping: <b>R$ {shipping.toFixed(2)}</b>
+                            </span>
+                        )}
                     </div>
-                ) : (
-                    <div className="d-flex gap-2 align-items-center">
-                        <span>{address}</span>
-                        <button className="btn btn-sm btn-outline-primary" onClick={() => setEditAddress(true)}>Edit</button>
-                    </div>
-                )}
-            </div>
+                </div>
+                <div className="mb-2">
+                    <label className="form-label">Delivery instructions:</label>
+                    <textarea
+                        className="form-control"
+                        value={deliveryInstructions}
+                        onChange={e => setDeliveryInstructions(e.target.value)}
+                        placeholder="Example: Leave at the gate, ring the intercom, etc."
+                        rows={2}
+                    />
+                </div>
+            </form>
 
             {/* Product summary */}
             <div className="mb-4">
@@ -170,16 +322,21 @@ const Checkout = () => {
                 <ul>
                     {cart.map(item => (
                         <li key={item.id}>
-                            {item.nameProduct || item.nameBook} x {item.quantity || 1} — ${(item.price * (item.quantity || 1)).toFixed(2)}
+                            {item.nameProduct || item.nameBook} x {item.quantity || 1} — R$ {(item.price * (item.quantity || 1)).toFixed(2)}
                         </li>
                     ))}
+                    {shipping > 0 && (
+                        <li>
+                            <b>Shipping:</b> R$ {shipping.toFixed(2)}
+                        </li>
+                    )}
                 </ul>
                 <h5>Total: <span style={{ color: "var(--primary)", fontWeight: 700 }}>
-                    ${getTotal().toFixed(2)}
+                    R$ {(getTotal() + shipping).toFixed(2)}
                 </span></h5>
             </div>
 
-            {/* Payment */}
+            {/* Payment section */}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Payment Method</label>
@@ -189,7 +346,7 @@ const Checkout = () => {
                     </select>
                 </div>
 
-                {/* Card details */}
+                {/* Card payment details */}
                 {paymentMethod === "Card" && (
                     <>
                         <div className="mb-2">
@@ -202,26 +359,26 @@ const Checkout = () => {
                         </div>
                         {cardType === "Installments" && (
                             <div className="mb-2">
-                                <label htmlFor="parcelas" className="form-label me-2">Installments:</label>
+                                <label htmlFor="installments" className="form-label me-2">Installments:</label>
                                 <select
-                                    id="parcelas"
+                                    id="installments"
                                     className="form-select d-inline w-auto"
-                                    value={parcelas}
-                                    onChange={e => setParcelas(Number(e.target.value))}
+                                    value={installments}
+                                    onChange={e => setInstallments(Number(e.target.value))}
                                 >
                                     {[...Array(12)].map((_, i) => (
                                         <option key={i + 1} value={i + 1}>{i + 1}x</option>
                                     ))}
                                 </select>
-                                {parcelas > 10 && (
+                                {installments > 10 && (
                                     <span className="ms-2 text-danger" style={{ fontSize: 14 }}>
                                         2% monthly interest applied
                                     </span>
                                 )}
                                 <div className="mt-1">
                                     <span>
-                                        Installment value: <b>${getParcelado().parcela.toFixed(2)}</b> <br />
-                                        Total: <b>${getParcelado().total.toFixed(2)}</b>
+                                        Installment value: <b>R$ {getInstallmentInfo().installment.toFixed(2)}</b> <br />
+                                        Total: <b>R$ {getInstallmentInfo().total.toFixed(2)}</b>
                                     </span>
                                 </div>
                             </div>
@@ -252,11 +409,11 @@ const Checkout = () => {
                     </>
                 )}
 
-                {/* Pix section */}
+                {/* Pix payment section */}
                 {paymentMethod === "Pix" && (
                     <div className="mb-4 text-center">
                         <div>
-                            <QRCodeSVG value={payloadPix} size={180} />
+                            <QRCodeSVG value={pixPayload} size={180} />
                             <div className="text-muted" style={{ fontSize: 13 }}>Point your bank app camera</div>
                         </div>
                         <div className="mt-2 d-flex justify-content-center align-items-center gap-2">
@@ -265,7 +422,7 @@ const Checkout = () => {
                                 userSelect: "all",
                                 fontWeight: 500,
                                 color: "#1976d2"
-                            }}>{chavePix}</span>
+                            }}>{pixKey}</span>
                             <button
                                 type="button"
                                 className="btn btn-outline-secondary btn-sm"
@@ -278,7 +435,7 @@ const Checkout = () => {
                             <button
                                 type="button"
                                 className="btn btn-light btn-sm"
-                                onClick={() => { navigator.clipboard.writeText(payloadPix); }}
+                                onClick={() => { navigator.clipboard.writeText(pixPayload); }}
                             >
                                 Copy Pix code
                             </button>
